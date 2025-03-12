@@ -1,0 +1,36 @@
+mods.KyfexHelper.name=Kyfex Helper
+
+entities.KyfexHelper/FlagUnlock.placements.name.main=Flag Unlock
+entities.KyfexHelper/FlagUnlock.placements.description.main=A Lock Block without the block, and customizable
+entities.KyfexHelper/FlagUnlock.attributes.description.unlockSfx=Sound effect to play on unlock. Default is "event:/game/03_resort/key_unlock"
+entities.KyfexHelper/FlagUnlock.attributes.name.unlockables=Unlocking Entities
+entities.KyfexHelper/FlagUnlock.attributes.description.unlockables=Comma separated list of entity types that are allowed to unlock this. (ex: Celeste.Key) (this entity must be able to follow the player! Must be a Follower)
+entities.KyfexHelper/FlagUnlock.attributes.description.requireUnobstructed=If this must have an unobstructed line to the player for this to be unlocked
+entities.KyfexHelper/FlagUnlock.attributes.description.flag=Flag to set on unlock
+entities.KyfexHelper/FlagUnlock.attributes.description.temporary=If this entity should be unlocked until reload, or if it should be unlocked permanently.
+entities.KyfexHelper/FlagUnlock.attributes.description.shake=If this entity should shake the player's controller and shake the player's screen on unlock
+entities.KyfexHelper/FlagUnlock.attributes.description.radius=The radius that the player can be in to unlock this. Default is 60
+entities.KyfexHelper/FlagUnlock.attributes.description.sprite=The sprite to render on top of this entity. If empty, does not render a sprite. If this sprite has an "open" and/or "burst" animation, they will play
+entities.KyfexHelper/FlagUnlock.attributes.description.time=The time it takes to suck in the "key" entity. Default is 1
+
+entities.KyfexHelper/SwitchGateIcon.placements.name.main=Switch Gate Icon
+entities.KyfexHelper/SwitchGateIcon.placements.description.main=A Switch Gate icon without the block, triggers with touch switches (or with flag)
+entities.KyfexHelper/SwitchGateIcon.attributes.description.depth=The depth to render this entity at. Default -9000
+entities.KyfexHelper/SwitchGateIcon.attributes.description.flag=The flag that triggers this icon. If empty, will trigger with vanilla touch switches
+entities.KyfexHelper/SwitchGateIcon.attributes.description.icon=The icon to display. Default is "objects/switchgate/icon"
+entities.KyfexHelper/SwitchGateIcon.attributes.name.inactive=Inactive Color
+entities.KyfexHelper/SwitchGateIcon.attributes.name.active=Active Color
+entities.KyfexHelper/SwitchGateIcon.attributes.name.finish=Finished Color
+entities.KyfexHelper/SwitchGateIcon.attributes.description.inactive=The color of this icon when it's inactive
+entities.KyfexHelper/SwitchGateIcon.attributes.description.active=The color of this icon when it's active
+entities.KyfexHelper/SwitchGateIcon.attributes.description.finish=The color of this icon when it's finished
+entities.KyfexHelper/SwitchGateIcon.attributes.description.attached=If this is attached to an entity
+entities.KyfexHelper/SwitchGateIcon.attributes.description.time=The time to be active before it starts shaking
+entities.KyfexHelper/SwitchGateIcon.attributes.name.shake=Shake Time
+entities.KyfexHelper/SwitchGateIcon.attributes.name.shakeStrength=Shake Strength
+entities.KyfexHelper/SwitchGateIcon.attributes.description.shake=The time to shake before it is active
+entities.KyfexHelper/SwitchGateIcon.attributes.description.shakeStrength=The strength of the shaking of this icon. Default is 1
+entities.KyfexHelper/SwitchGateIcon.attributes.name.color=Particle Color
+entities.KyfexHelper/SwitchGateIcon.attributes.description.color=The color of the particles to emit when activated. Default is f141df maybe
+entities.KyfexHelper/SwitchGateIcon.attributes.name.particles=Show Particles
+entities.KyfexHelper/SwitchGateIcon.attributes.description.particles=Whether or not to show particles
