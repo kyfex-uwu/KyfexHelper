@@ -34,3 +34,8 @@ entities.KyfexHelper/SwitchGateIcon.attributes.name.color=Particle Color
 entities.KyfexHelper/SwitchGateIcon.attributes.description.color=The color of the particles to emit when activated. Default is f141df maybe
 entities.KyfexHelper/SwitchGateIcon.attributes.name.particles=Show Particles
 entities.KyfexHelper/SwitchGateIcon.attributes.description.particles=Whether or not to show particles
+
+triggers.KyfexHelper/ClearFlagsTrigger.placements.name.main=Clear Flags
+triggers.KyfexHelper/ClearFlagsTrigger.placements.description.main=Removes all the flags that match the given regex
+triggers.KyfexHelper/ClearFlagsTrigger.attributes.description.matcher=The regex to match flags against. (Visit regexr.com to build and test your regex)
+triggers.KyfexHelper/ClearFlagsTrigger.attributes.description.onEnter=Whether to trigger this on enter (true), or on exit (false)

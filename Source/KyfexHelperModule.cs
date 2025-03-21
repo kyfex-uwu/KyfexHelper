@@ -34,10 +34,10 @@ public class KyfexHelperModule : EverestModule {
     }
 
     public override void Load() {
-        // TODO: apply any hooks that should always be active
+        //TransparentDreamBlock.Load();
     }
 
     public override void Unload() {
-        // TODO: unapply any hooks applied in Load()
+        //TransparentDreamBlock.Unload();
     }
 }
