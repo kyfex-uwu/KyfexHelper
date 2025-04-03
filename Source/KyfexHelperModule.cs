@@ -34,10 +34,10 @@ public class KyfexHelperModule : EverestModule {
     }
 
     public override void Load() {
-        //TransparentDreamBlock.Load();
+        KevinZipper.Load();
     }
 
     public override void Unload() {
-        //TransparentDreamBlock.Unload();
+        KevinZipper.Unload();
     }
 }

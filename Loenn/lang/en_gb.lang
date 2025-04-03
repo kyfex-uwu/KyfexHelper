@@ -39,3 +39,8 @@ triggers.KyfexHelper/ClearFlagsTrigger.placements.name.main=Clear Flags
 triggers.KyfexHelper/ClearFlagsTrigger.placements.description.main=Removes all the flags that match the given regex
 triggers.KyfexHelper/ClearFlagsTrigger.attributes.description.matcher=The regex to match flags against. (Visit regexr.com to build and test your regex)
 triggers.KyfexHelper/ClearFlagsTrigger.attributes.description.onEnter=Whether to trigger this on enter (true), or on exit (false)
+
+entities.KyfexHelper/PlayerCloneRenderer.placements.name.main=Player Clone Renderer
+entities.KyfexHelper/PlayerCloneRenderer.placements.description.main=Renders the player again with the given offset
+entities.KyfexHelper/PlayerCloneRenderer.attributes.description.xOffset=The X offset to render the player at
+entities.KyfexHelper/PlayerCloneRenderer.attributes.description.yOffset=The Y offset to render the player at

@@ -1,5 +1,5 @@
 - Name: KyfexHelper
-  Version: 0.2.0
+  Version: 0.3.0
   DLL: bin/KyfexHelper.dll
   Dependencies:
     - Name: EverestCore
