@@ -11,13 +11,13 @@ local script = {
     displayName = "Copy Whole Map",
     parameters = {
         from = "",
-        prefix = ""
+        prefix = "",
     },
     fieldOrder = { "from", "prefix" },
     fieldInformation = {
         from = {
             fieldType = "loennScripts.directFilepath",
-            extension = "bin"
+            extension = "bin",
         }
     },
     tooltip = "Copies a whole map into this one",
@@ -32,30 +32,26 @@ function script.prerun(args, mode, ctx)
     local xOffs = math.round(ctx.mouseMapX / 8) * 8
     local yOffs = math.round(ctx.mouseMapY / 8) * 8
 
+    local rooms = {}
+    for _, room in ipairs(targetMap.rooms) do
+        newRoom = utils.deepcopy(room)
+        newRoom.name = args.prefix..room.name
+        newRoom.x = room.x+xOffs
+        newRoom.y = room.y+yOffs
+
+        rooms:insert(newRoom)
+    end
+
     local function forward(data)
-        local map = state.map
-
-        for i, room in ipairs(targetMap.rooms) do
-            newRoom = utils.deepcopy(room)
-            newRoom.name = args.prefix..room.name
-            newRoom.x = room.x+xOffs
-            newRoom.y = room.y+yOffs
-
-            mapItemUtils.addItem(map, newRoom)
+        for _, room in ipairs(rooms) do
+            mapItemUtils.addRoom(state.map, room)
         end
     end
 
-    local prefixLen = args.prefix:len()
     local function backward(data)
-        local map = state.map
-
-        for i, room in ipairs(state.map.rooms) do
-            if room.name:sub(0, prefixLen) == args.prefix then
-                mapItemUtils.deleteRoom(map, room)
-            end
+        for _, room in ipairs(rooms) do
+            mapItemUtils.deleteRoom(state.map, room)
         end
-
-        mapItemUtils.deleteRoom(map, newRoom)
     end
 
     forward()

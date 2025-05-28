@@ -7,14 +7,14 @@ namespace Celeste.Mod.KyfexHelper;
 public class KyfexHelperModule : EverestModule {
     public static KyfexHelperModule Instance { get; private set; }
 
-    public override Type SettingsType => typeof(KyfexHelperModuleSettings);
-    public static KyfexHelperModuleSettings Settings => (KyfexHelperModuleSettings) Instance._Settings;
-
-    public override Type SessionType => typeof(KyfexHelperModuleSession);
-    public static KyfexHelperModuleSession Session => (KyfexHelperModuleSession) Instance._Session;
-
-    public override Type SaveDataType => typeof(KyfexHelperModuleSaveData);
-    public static KyfexHelperModuleSaveData SaveData => (KyfexHelperModuleSaveData) Instance._SaveData;
+    // public override Type SettingsType => typeof(KyfexHelperModuleSettings);
+    // public static KyfexHelperModuleSettings Settings => (KyfexHelperModuleSettings) Instance._Settings;
+    //
+    // public override Type SessionType => typeof(KyfexHelperModuleSession);
+    // public static KyfexHelperModuleSession Session => (KyfexHelperModuleSession) Instance._Session;
+    //
+    // public override Type SaveDataType => typeof(KyfexHelperModuleSaveData);
+    // public static KyfexHelperModuleSaveData SaveData => (KyfexHelperModuleSaveData) Instance._SaveData;
 
     public KyfexHelperModule() {
         Instance = this;
@@ -35,9 +35,11 @@ public class KyfexHelperModule : EverestModule {
 
     public override void Load() {
         KevinZipper.Load();
+        PlayerCloneRenderer.Load();
     }
 
     public override void Unload() {
         KevinZipper.Unload();
+        PlayerCloneRenderer.Unload();
     }
 }

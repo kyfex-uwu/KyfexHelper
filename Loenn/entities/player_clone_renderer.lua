@@ -10,10 +10,14 @@ local renderer = {
             data = {
                 xOffset=0,
                 yOffset=0,
+                flag=""
             },
         }
     },
     texture="loenn/kyfexuwu/clone",
+    fieldInformation={
+        flag={default=""}
+    }
 }
 
 return renderer
