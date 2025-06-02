@@ -1,5 +1,6 @@
 mods.KyfexHelper.name=Kyfex Helper
 
+# flag unlock
 entities.KyfexHelper/FlagUnlock.placements.name.main=Flag Unlock
 entities.KyfexHelper/FlagUnlock.placements.description.main=A Lock Block without the block, and customizable
 entities.KyfexHelper/FlagUnlock.attributes.description.unlockSfx=Sound effect to play on unlock. Default is "event:/game/03_resort/key_unlock"
@@ -13,6 +14,7 @@ entities.KyfexHelper/FlagUnlock.attributes.description.radius=The radius that th
 entities.KyfexHelper/FlagUnlock.attributes.description.sprite=The sprite to render on top of this entity. If empty, does not render a sprite. If this sprite has an "open" and/or "burst" animation, they will play
 entities.KyfexHelper/FlagUnlock.attributes.description.time=The time it takes to suck in the "key" entity. Default is 1
 
+# switch gate icon
 entities.KyfexHelper/SwitchGateIcon.placements.name.main=Switch Gate Icon
 entities.KyfexHelper/SwitchGateIcon.placements.description.main=A Switch Gate icon without the block, triggers with touch switches (or with flag)
 entities.KyfexHelper/SwitchGateIcon.attributes.description.depth=The depth to render this entity at. Default -9000
@@ -35,12 +37,24 @@ entities.KyfexHelper/SwitchGateIcon.attributes.description.color=The color of th
 entities.KyfexHelper/SwitchGateIcon.attributes.name.particles=Show Particles
 entities.KyfexHelper/SwitchGateIcon.attributes.description.particles=Whether or not to show particles
 
+# clear flags trigger
 triggers.KyfexHelper/ClearFlagsTrigger.placements.name.main=Clear Flags
 triggers.KyfexHelper/ClearFlagsTrigger.placements.description.main=Removes all the flags that match the given regex
 triggers.KyfexHelper/ClearFlagsTrigger.attributes.description.matcher=The regex to match flags against. (Visit regexr.com to build and test your regex)
 triggers.KyfexHelper/ClearFlagsTrigger.attributes.description.onEnter=Whether to trigger this on enter (true), or on exit (false)
 
+# player clone renderer
 entities.KyfexHelper/PlayerCloneRenderer.placements.name.main=Player Clone Renderer
 entities.KyfexHelper/PlayerCloneRenderer.placements.description.main=Renders the player again with the given offset
 entities.KyfexHelper/PlayerCloneRenderer.attributes.description.xOffset=The X offset to render the player at
 entities.KyfexHelper/PlayerCloneRenderer.attributes.description.yOffset=The Y offset to render the player at
+
+# input Swap Block
+entities.KyfexHelper/InputSwapBlock.placements.name.normaljump=Swap Block (Normal, Jump)
+entities.KyfexHelper/InputSwapBlock.placements.name.normaldash=Swap Block (Normal, Dash)
+entities.KyfexHelper/InputSwapBlock.placements.name.normalgrab=Swap Block (Normal, Grab)
+entities.KyfexHelper/InputSwapBlock.placements.name.moonjump=Swap Block (Moon, Jump)
+entities.KyfexHelper/InputSwapBlock.placements.name.moondash=Swap Block (Moon, Dash)
+entities.KyfexHelper/InputSwapBlock.placements.name.moongrab=Swap Block (Moon, Grab)
+entities.KyfexHelper/InputSwapBlock.attributes.description.theme=The visual theme of the swap block
+entities.KyfexHelper/InputSwapBlock.attributes.description.input=Which input triggers the swap block

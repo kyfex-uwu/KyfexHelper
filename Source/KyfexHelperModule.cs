@@ -36,10 +36,12 @@ public class KyfexHelperModule : EverestModule {
     public override void Load() {
         KevinZipper.Load();
         PlayerCloneRenderer.Load();
+        InputSwapBlock.Load();
     }
 
     public override void Unload() {
         KevinZipper.Unload();
         PlayerCloneRenderer.Unload();
+        InputSwapBlock.Unload();
     }
 }
