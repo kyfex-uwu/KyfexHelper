@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <AssemblyName>KyfexHelper</AssemblyName>
         <RootNamespace>Celeste.Mod.KyfexHelper</RootNamespace>
         <LangVersion>latest</LangVersion>
@@ -26,8 +26,8 @@
         <PackageReference Include="CelesteMod.Publicizer" Version="*" CelesteAssembly="$(CelestePrefix)\Celeste.dll" />
         <Reference Include="$(CelestePrefix)\MMHOOK_Celeste.dll" Private="false" />
         <Reference Include="$(CelestePrefix)\FNA.dll" Private="false" />
-        <Reference Include="CollabUtils2">
-          <HintPath>deps\CollabUtils2.dll</HintPath>
+        <Reference Include="auspicioushelper">
+          <HintPath>../deps/auspicioushelper.dll</HintPath>
         </Reference>
     </ItemGroup>
 

@@ -7,7 +7,7 @@ local mapItemUtils = require("map_item_utils")
 local celesteRender = require("celeste_render")
 
 local script = {
-    name = "copyWholeMap",
+    name = "kyfex_copyWholeMap",
     displayName = "Copy Whole Map",
     parameters = {
         from = "",
@@ -39,7 +39,7 @@ function script.prerun(args, mode, ctx)
         newRoom.x = room.x+xOffs
         newRoom.y = room.y+yOffs
 
-        rooms:insert(newRoom)
+        table.insert(rooms, newRoom)
     end
 
     local function forward(data)

@@ -1,7 +1,7 @@
 local swapBlock = require("entities.swap_block")
 
 local newPlacements = {}
-local inputs = {"jump", "dash", "grab"}
+local inputs = {"jump", "dashOrDemo", "grab"}
 for _,placement in ipairs(swapBlock.placements) do
     for _,input in ipairs(inputs) do
         table.insert(newPlacements, {
@@ -21,7 +21,7 @@ for k,v in pairs(swapBlock.fieldInformation) do
     newFieldInformation[k]=v
 end
 newFieldInformation.input = {
-    options = {"jump", "dash", "grab", "demo"},
+    options = {"dashOrDemo", "jump", "grab", "dash", "demo"},
     editable = false
 }
 

@@ -37,11 +37,14 @@ public class InputSwapBlock : SwapBlock {
                 case InputListener.Input.DASH: 
                     if(Input.Dash.Pressed) (listener as InputListener).OnInput();
                     break;
-                case InputListener.Input.JUMP: 
-                    if(Input.Jump.Pressed) (listener as InputListener).OnInput();
-                    break;
                 case InputListener.Input.DEMO: 
                     if(Input.CrouchDash.Pressed) (listener as InputListener).OnInput();
+                    break;
+                case InputListener.Input.DASHORDEMO: 
+                    if(Input.CrouchDash.Pressed || Input.Dash.Pressed) (listener as InputListener).OnInput();
+                    break;
+                case InputListener.Input.JUMP: 
+                    if(Input.Jump.Pressed) (listener as InputListener).OnInput();
                     break;
                 case InputListener.Input.GRAB: 
                     if(Input.Grab.Pressed) (listener as InputListener).OnInput();

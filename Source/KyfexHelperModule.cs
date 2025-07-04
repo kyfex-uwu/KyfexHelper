@@ -18,14 +18,18 @@ public class KyfexHelperModule : EverestModule {
 
     public KyfexHelperModule() {
         Instance = this;
-
+#if DEBUG
         Logger.SetLogLevel("KyfexHelper", LogLevel.Verbose);
+#endif
         
         FlagUnlock.unlockRoutines.Add(typeof(Key), (entity, follower) => 
             new Coroutine(keyUnlockRoutine(follower, entity)));
         FlagUnlock.onUnlockActions.Add(typeof(Key), (entity, follower) => {
             ((Key)follower.Entity).RegisterUsed();
         });
+
+        if (Everest.Loader.DependencyLoaded(auspiciousDependency))
+            AuspiciousCompat.Load();
     }
 
     private static IEnumerator keyUnlockRoutine(Follower follower, FlagUnlock unlocker) {
@@ -44,4 +48,6 @@ public class KyfexHelperModule : EverestModule {
         PlayerCloneRenderer.Unload();
         InputSwapBlock.Unload();
     }
+    
+    private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata { Name = "auspicioushelper", Version = new Version(0, 2, 0) };
 }

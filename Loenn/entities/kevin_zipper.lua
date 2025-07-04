@@ -11,7 +11,7 @@ local zipMover = {
     nodeLimits = {1, 1},
     warnBelowSize = {24, 24},
     placements={{
-        name="",
+        name="main",
         data={
             width=24,
             height=24,
@@ -29,6 +29,8 @@ local zipMover = {
         }
     },
 }
+
+
 local axesToSprite={
     none = "objects/crushblock/block00",
     horizontal = "objects/crushblock/block01",

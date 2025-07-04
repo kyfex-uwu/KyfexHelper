@@ -50,11 +50,18 @@ entities.KyfexHelper/PlayerCloneRenderer.attributes.description.xOffset=The X of
 entities.KyfexHelper/PlayerCloneRenderer.attributes.description.yOffset=The Y offset to render the player at
 
 # input Swap Block
-entities.KyfexHelper/InputSwapBlock.placements.name.normaljump=Swap Block (Normal, Jump)
-entities.KyfexHelper/InputSwapBlock.placements.name.normaldash=Swap Block (Normal, Dash)
-entities.KyfexHelper/InputSwapBlock.placements.name.normalgrab=Swap Block (Normal, Grab)
-entities.KyfexHelper/InputSwapBlock.placements.name.moonjump=Swap Block (Moon, Jump)
-entities.KyfexHelper/InputSwapBlock.placements.name.moondash=Swap Block (Moon, Dash)
-entities.KyfexHelper/InputSwapBlock.placements.name.moongrab=Swap Block (Moon, Grab)
+entities.KyfexHelper/InputSwapBlock.placements.name.normaljump=Input Swap Block (Normal, Jump)
+entities.KyfexHelper/InputSwapBlock.placements.name.normaldashOrDemo=Input Swap Block (Normal, Dash)
+entities.KyfexHelper/InputSwapBlock.placements.name.normalgrab=Input Swap Block (Normal, Grab)
+entities.KyfexHelper/InputSwapBlock.placements.name.moonjump=Input Swap Block (Moon, Jump)
+entities.KyfexHelper/InputSwapBlock.placements.name.moondashOrDemo=Input Swap Block (Moon, Dash)
+entities.KyfexHelper/InputSwapBlock.placements.name.moongrab=Input Swap Block (Moon, Grab)
 entities.KyfexHelper/InputSwapBlock.attributes.description.theme=The visual theme of the swap block
 entities.KyfexHelper/InputSwapBlock.attributes.description.input=Which input triggers the swap block
+
+# kevin trigger
+entities.KyfexHelper/TemplateKevinTrigger.placements.name.main=Kevin Template Trigger
+entities.KyfexHelper/TemplateKevinTrigger.placements.description.main=An entity that is meant to be used in an auspicioushelper template. When dashed into, its template will activate
+entities.KyfexHelper/TemplateKevinTrigger.attributes.description.direction=The direction that you can dash into
+
+entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

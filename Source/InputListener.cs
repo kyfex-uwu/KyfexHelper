@@ -7,7 +7,7 @@ namespace Celeste.Mod.KyfexHelper;
 [Tracked(false)]
 public class InputListener : Component {
     public enum Input {
-        JUMP, DASH, DEMO, GRAB, 
+        JUMP, DASH, DEMO, GRAB, DASHORDEMO
     }
     
     public readonly Input input;
