@@ -13,53 +13,96 @@ local script = {
     parameters = {
         from = "",
         group = "",
-        tagsToAdd = "",
+        tagPrefix = "",
         onlyPrefix = "",
+        onlyToAdd = "",
+        excludePrefix = "",
+        excludeToAdd = "",
+        flagPrefix = "",
+        flagToAdd = "",
 
         offsetX = 0,
         offsetY = 0,
+    },
+    fieldOrder = {
+        "from",
+        "group",
+
+        "onlyPrefix",
+        "onlyToAdd",
+        "excludePrefix",
+        "excludeToAdd",
+        "tagPrefix",
+
+        "offsetX",
+        "offsetY",
     },
     fieldInformation = {
         from = {
             fieldType = "loennScripts.directFilepath",
             extension = "bin",
         },
-        tagsToAdd = {
-            fieldType = "list"
+        onlyToAdd = {
+            fieldType = "list",
+            elementDefault = "",
+        },
+        excludeToAdd = {
+            fieldType = "list",
+            elementDefault = "",
         },
     },
     tooltip = "Copies all of a map's stylegrounds into this one",
     tooltips = {
         from = "The file to copy",
         group = "The name of the group to put all these stylegrounds in (leave this blank, and they won't go in a group)",
-        tagsToAdd = "A comma-separated list of tags to add to the stylegrounds",
         onlyPrefix = "The prefix to add to all entries in the \"Only\" list",
+        tagPrefix = "The prefix to add to every styleground's \"Tag\"",
+        excludePrefix = "The prefix to add to all entries in the \"Exclude\" list",
+        onlyToAdd = "A comma-separated list of entries to add to the stylegrounds' \"Only\" field. Does not include the prefix specified before",
+        excludeToAdd = "A comma-separated list of entries to add to the stylegrounds' \"Exclude\" field. Does not include the prefix specified before",
         offsetX = "The destination map X minus the source map X",
         offsetY = "The destination map Y minus the source map Y",
     },
 }
 
 function process(styleground, args)
-    if args.tagsToAdd ~= "" then
-        styleground.tag = styleground.tag or ""
-        if styleground.tag ~= "" then
-            styleground.tag = styleground.tag .. ","
+    if styleground.tag ~= nil and styleground.tag ~= "" then
+        styleground.tag = args.tagPrefix .. styleground.tag
+    end
+
+    local newExclude = ""
+    if args.excludePrefix ~= "" then
+        for part in string.gmatch(styleground.exclude or "*", "([^,]+)") do
+            if newExclude ~= "" then newExclude = newExclude .. "," end
+            newExclude = args.excludePrefix .. part
         end
-        styleground.tag = styleground.tag .. args.tagsToAdd
+    end
+    styleground.exclude = newExclude
+    if args.excludeToAdd ~= "" then
+        if styleground.exclude ~= "" then
+            styleground.exclude = styleground.exclude .. ","
+        end
+        styleground.exclude = styleground.exclude .. args.excludeToAdd
+    end
+
+    if styleground.only ~= nil then
+        local newOnly = ""
+        for part in string.gmatch(styleground.only or "*", "([^,]+)") do
+            if newOnly ~= "" then newOnly = newOnly .. "," end
+            newOnly = args.onlyPrefix .. part
+        end
+        styleground.only = newOnly
+        if args.onlyToAdd ~= "" then
+            if styleground.only ~= "" then
+                styleground.only = styleground.only .. ","
+            end
+            styleground.only = styleground.only .. args.onlyToAdd
+        end
     end
 
     if styleground._type == "parallax" then
         styleground.x = (styleground.x or 0) + args.offsetX * 8 * (styleground.scrollX or 0)
         styleground.y = (styleground.y or 0) + args.offsetY * 8 * (styleground.scrollY or 0)
-    end
-
-    if styleground.only ~= nil then
-        local newOnly = ""
-        for part in string.gmatch(styleground.only, "([^,]+)") do
-            if newOnly ~= "" then newOnly = newOnly .. "," end
-            newOnly = args.onlyPrefix .. part
-        end
-        styleground.only = newOnly
     end
 end
 

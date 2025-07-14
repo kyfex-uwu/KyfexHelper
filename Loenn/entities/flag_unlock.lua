@@ -47,7 +47,8 @@ local flag_unlock = {
 }
 
 local ids={}
-if true then
+local killswitch = true
+if killswitch then
     local entities = require("entities")
     local oldGED = entities.getEntityDrawable
     local oldGND = entities.getNodeDrawable
@@ -73,6 +74,7 @@ if true then
 end
 
 function flag_unlock.selection(room, entity)
+    if killswitch and entity.hider ~= nil then return nil end
     return rectangle.create(entity.x-8,entity.y-8,16,16)
 end
 
