@@ -67,10 +67,6 @@ public class FlagUnlock : Entity {
     
     public IEnumerator UnlockRoutine(Follower follower) {
         SoundEmitter emitter=null;
-        if (this.unlockSfx != "") {
-            emitter = SoundEmitter.Play(this.unlockSfx, this);
-            emitter.Source.DisposeOnTransition = true;
-        }
 
         Level level = this.SceneAs<Level>();
         if (unlockRoutines.ContainsKey(follower.Entity.GetType())) {
@@ -105,6 +101,10 @@ public class FlagUnlock : Entity {
             Input.Rumble(RumbleStrength.Light, RumbleLength.Medium);
             for (int index = 0; index < 8; ++index) {
                 entity.SceneAs<Level>().ParticlesFG.Emit(Key.P_Insert, entity.Center, 0.7853982f * index);
+            }
+            if (this.unlockSfx != "") {
+                emitter = SoundEmitter.Play(this.unlockSfx, this);
+                emitter.Source.DisposeOnTransition = true;
             }
 
             entity.RemoveSelf();
