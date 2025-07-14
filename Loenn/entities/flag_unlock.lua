@@ -13,11 +13,12 @@ local flag_unlock = {
                 unlockables="Celeste.Key",
                 requireUnobstructed=true,
                 flag="flag",
-                temporary=false,
+                --temporary=false,
                 shake=true,
                 radius=60,
                 sprite="lockdoor_wood",
                 time=1,
+                waitForUnlock=true,
             },
         }
     },
@@ -27,6 +28,18 @@ local flag_unlock = {
         end
         return {"KyfexHelper"}
     end,
+    fieldOrder={
+        "x","y",
+        "radius",
+        "sprite",
+        "flag",
+        "time",
+        "shake",
+        "unlockables",
+        "unlockSfx", "waitForUnlock",
+        "requireUnobstructed",
+        "temporary",
+        },
     fieldInformation = {
         unlockSfx = {
             options = {"event:/game/03_resort/key_unlock"},
@@ -41,7 +54,11 @@ local flag_unlock = {
                 "lockdoor_temple_a",
                 "lockdoor_temple_b",
                 "lockdoor_moon",
+                "KyfexHelper_lock",
             }
+        },
+        waitForUnlock={
+            default=true,
         }
     }
 }

@@ -8,11 +8,13 @@ entities.KyfexHelper/FlagUnlock.attributes.name.unlockables=Unlocking Entities
 entities.KyfexHelper/FlagUnlock.attributes.description.unlockables=Comma separated list of entity types that are allowed to unlock this. (ex: Celeste.Key) (this entity must be able to follow the player! Must be a Follower)
 entities.KyfexHelper/FlagUnlock.attributes.description.requireUnobstructed=If this must have an unobstructed line to the player for this to be unlocked
 entities.KyfexHelper/FlagUnlock.attributes.description.flag=Flag to set on unlock
-entities.KyfexHelper/FlagUnlock.attributes.description.temporary=If this entity should be unlocked until reload, or if it should be unlocked permanently.
+entities.KyfexHelper/FlagUnlock.attributes.name.temporary=[WIP] Temporary
+entities.KyfexHelper/FlagUnlock.attributes.description.temporary=[WIP, does not work] If this entity should be unlocked until reload, or if it should be unlocked permanently.
 entities.KyfexHelper/FlagUnlock.attributes.description.shake=If this entity should shake the player's controller and shake the player's screen on unlock
 entities.KyfexHelper/FlagUnlock.attributes.description.radius=The radius that the player can be in to unlock this. Default is 60
 entities.KyfexHelper/FlagUnlock.attributes.description.sprite=The sprite to render on top of this entity. If empty, does not render a sprite. If this sprite has an "open" and/or "burst" animation, they will play
 entities.KyfexHelper/FlagUnlock.attributes.description.time=The time it takes to suck in the "key" entity. Default is 1
+entities.KyfexHelper/FlagUnlock.attributes.description.waitForUnlock=Whether or not the unlock SFX should wait until this entity is actually unlocked, or play as soon as the unlocking animation starts
 
 # switch gate icon
 entities.KyfexHelper/SwitchGateIcon.placements.name.main=Switch Gate Icon

@@ -13,7 +13,7 @@ namespace Celeste.Mod.KyfexHelper;
 
 [CustomEntity("KyfexHelper/FlagUnlock")]
 public class FlagUnlock : Entity {
-    private readonly string unlockSfx;
+    public readonly string unlockSfx;
     private readonly bool requireUnobstructed;
     private readonly string[] unlockables;
     private readonly EntityID ID;
@@ -21,6 +21,7 @@ public class FlagUnlock : Entity {
     private readonly bool shake;
     private readonly string flagToSet;
     private readonly float time;
+    public readonly bool SFXwaitForUnlock;
 
     private readonly Sprite sprite = null;
 
@@ -33,9 +34,10 @@ public class FlagUnlock : Entity {
     public FlagUnlock(EntityData data, Vector2 offset, EntityID id) : base(data.Position + offset) {
         this.ID = id;
         this.unlockSfx = data.String("unlockSfx","");
+        this.SFXwaitForUnlock = data.Bool("waitForUnlock", true);
         this.unlockables = data.String("unlockables", "Celeste.Key").Split(",");
         this.requireUnobstructed = data.Bool("requireUnobstructed", true);
-        this.temporary = data.Bool("temporary", false);
+        //this.temporary = data.Bool("temporary", false);
         this.shake = data.Bool("shake", true);
         this.flagToSet = data.String("flag", "");
         this.time = data.Float("time", 1);
@@ -64,9 +66,13 @@ public class FlagUnlock : Entity {
             this.Add(new Coroutine(this.UnlockRoutine(follower)));
         }
     }
-    
+
+    public void playSound() {
+        SoundEmitter emitter = SoundEmitter.Play(this.unlockSfx, this);
+        emitter.Source.DisposeOnTransition = true;//sure  LockBlock line 123
+    }
     public IEnumerator UnlockRoutine(Follower follower) {
-        SoundEmitter emitter=null;
+        if (this.unlockSfx != "" && !this.SFXwaitForUnlock) this.playSound();
 
         Level level = this.SceneAs<Level>();
         if (unlockRoutines.ContainsKey(follower.Entity.GetType())) {
@@ -92,6 +98,12 @@ public class FlagUnlock : Entity {
             }
 
             var tween2 = Tween.Create(Tween.TweenMode.Oneshot, Ease.Linear, 0.5f, true);
+            try {
+                var field = follower.Entity.GetType().GetField("sprite");
+                if (field != null && field.FieldType == typeof(Sprite))
+                    ((Sprite)field.GetValue(follower.Entity)).Play("unlock");
+            } catch (Exception _) { }
+
             tween2.OnUpdate = t => {
                 entity.Position = this.Center;
             };
@@ -100,12 +112,9 @@ public class FlagUnlock : Entity {
             //remove "key"
             Input.Rumble(RumbleStrength.Light, RumbleLength.Medium);
             for (int index = 0; index < 8; ++index) {
-                entity.SceneAs<Level>().ParticlesFG.Emit(Key.P_Insert, entity.Center, 0.7853982f * index);
+                entity.SceneAs<Level>().ParticlesFG.Emit(Key.P_Insert, entity.Center, (float)(Math.PI/4.0) * index);
             }
-            if (this.unlockSfx != "") {
-                emitter = SoundEmitter.Play(this.unlockSfx, this);
-                emitter.Source.DisposeOnTransition = true;
-            }
+            if (this.unlockSfx != "" && this.SFXwaitForUnlock) this.playSound();
 
             entity.RemoveSelf();
         }
@@ -117,14 +126,10 @@ public class FlagUnlock : Entity {
         if (onUnlockActions.ContainsKey(follower.Entity.GetType())) {
             onUnlockActions[follower.Entity.GetType()].Invoke(this, follower);
         } else {
-            var field = follower.Entity.GetType().GetField("ID");
-            if (field!=null && field.FieldType == typeof(EntityID))
-                level.Session.DoNotLoad.Add((EntityID)field.GetValue(follower.Entity));
+            level.Session.DoNotLoad.Add(follower.Entity.SourceId);
         }
         
         this.Tag |= (int) Tags.TransitionUpdate;
-        
-        if(emitter!=null) emitter.Source.DisposeOnTransition = false;
         
         if(this.sprite!=null && this.sprite.animations["open"]!=null) 
             yield return this.sprite.PlayRoutine("open");

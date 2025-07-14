@@ -35,6 +35,7 @@ public class KyfexHelperModule : EverestModule {
     private static IEnumerator keyUnlockRoutine(Follower follower, FlagUnlock unlocker) {
         ((Key)follower.Entity).StartedUsing = true;
         yield return ((Key)follower.Entity).UseRoutine(unlocker.Center);
+        if(unlocker.SFXwaitForUnlock) unlocker.playSound();
     }
 
     public override void Load() {

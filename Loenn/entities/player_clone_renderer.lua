@@ -15,6 +15,11 @@ local renderer = {
         }
     },
     texture="loenn/kyfexuwu/clone",
+    fieldOrder={
+        "x","y",
+        "xOffset", "yOffset",
+        "flag"
+    },
     fieldInformation={
         flag={default=""}
     }
