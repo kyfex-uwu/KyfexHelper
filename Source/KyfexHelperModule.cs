@@ -49,5 +49,5 @@ public class KyfexHelperModule : EverestModule {
         InputSwapBlock.Unload();
     }
     
-    private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata { Name = "auspicioushelper", Version = new Version(0, 2, 0) };
+    private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata{ Name = "auspicioushelper", Version = new Version(0, 2, 1) };
 }
