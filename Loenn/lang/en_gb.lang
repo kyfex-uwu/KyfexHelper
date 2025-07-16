@@ -66,4 +66,13 @@ entities.KyfexHelper/TemplateKevinTrigger.placements.name.main=Kevin Template Tr
 entities.KyfexHelper/TemplateKevinTrigger.placements.description.main=An entity that is meant to be used in an auspicioushelper template. When dashed into, its template will activate
 entities.KyfexHelper/TemplateKevinTrigger.attributes.description.direction=The direction that you can dash into
 
+# fake transition
+entities.KyfexHelper/FakeRoomTransition.placements.name.main=Fake Room Transition
+entities.KyfexHelper/FakeRoomTransition.placements.description.main=An entity that makes it look like the player is going through a room transition. You might want to look at the Respect Fake Transition Camera Trigger as well
+entities.KyfexHelper/FakeRoomTransition.attributes.description.canGoBack=If the player can go back through the transition once they have gone through it once
+
+# respect fake transition camera
+triggers.KyfexHelper/RespectFakeTransitionCamera.placements.name.main=Respect Fake Transition Camera Trigger
+triggers.KyfexHelper/RespectFakeTransitionCamera.placements.description.main=An trigger that makes the camera stop on Fake Room Transitions if the player is inside
+
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper
