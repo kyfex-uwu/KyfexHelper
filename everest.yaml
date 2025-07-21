@@ -1,5 +1,5 @@
 - Name: KyfexHelper
-  Version: 0.6.1
+  Version: 0.7.0
   DLL: bin/KyfexHelper.dll
   Dependencies:
     - Name: EverestCore
@@ -7,3 +7,5 @@
   OptionalDependencies:
     - Name: auspicioushelper
       Version: 0.2.1
+    - Name: LuaCutscenes
+      Version: 0.2.13

@@ -27,7 +27,13 @@
         <Reference Include="$(CelestePrefix)\MMHOOK_Celeste.dll" Private="false" />
         <Reference Include="$(CelestePrefix)\FNA.dll" Private="false" />
         <Reference Include="auspicioushelper">
-          <HintPath>../deps/auspicioushelper.dll</HintPath>
+            <HintPath>../deps/auspicioushelper.dll</HintPath>
+        </Reference>
+        <Reference Include="LuaCutscenes">
+            <HintPath>../deps/LuaCutscenes.dll</HintPath>
+        </Reference>
+        <Reference Include="NLua">
+            <HintPath>../../../NLua.dll</HintPath>
         </Reference>
     </ItemGroup>
 

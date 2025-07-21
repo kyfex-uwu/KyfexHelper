@@ -30,6 +30,8 @@ public class KyfexHelperModule : EverestModule {
 
         if (Everest.Loader.DependencyLoaded(auspiciousDependency))
             AuspiciousCompat.Load();
+        if (Everest.Loader.DependencyLoaded(luaCutscenesDependency))
+            LuaCutscenesCompat.Load();
     }
 
     private static IEnumerator keyUnlockRoutine(Follower follower, FlagUnlock unlocker) {
@@ -53,4 +55,5 @@ public class KyfexHelperModule : EverestModule {
     }
     
     private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata{ Name = "auspicioushelper", Version = new Version(0, 2, 1) };
+    private static EverestModuleMetadata luaCutscenesDependency = new EverestModuleMetadata{ Name = "LuaCutscenes", Version = new Version(0, 2, 13) };
 }
