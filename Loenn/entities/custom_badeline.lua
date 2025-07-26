@@ -50,6 +50,7 @@ badelineBoss.placements = {
         holdableHitType=hitOptions[1],
         customSprite="badeline_boss",
         flagList="",
+        bounceStrength=1,
     }
 }
 

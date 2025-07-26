@@ -28,6 +28,7 @@ public class ClearFlagsTrigger : Trigger {
     private void doMatch(Session session) {
         var flagsToChange = new HashSet<string>();
         foreach (var flag in session.Flags) {
+            if (flag == null) continue;
             if (this.matcher.IsMatch(flag)) flagsToChange.Add(flag);
         }
         foreach (var flag in flagsToChange) {
