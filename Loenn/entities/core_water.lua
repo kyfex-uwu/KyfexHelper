@@ -1,5 +1,4 @@
-local xnaColors = require("consts.xna_colors")
-local lightBlue = xnaColors.LightBlue
+local drawableRectangle = require("structs.drawable_rectangle")
 
 local water = {}
 
@@ -18,7 +17,7 @@ water.placements = {
         hotColorEdge="ff8933",
         coldColorEdge="a6fff4",
         hotTransparency=0.3,
-        coldTransparency=0.3,
+        coldTransparency=0.3
     }
 }
 water.fieldInformation = {
@@ -55,8 +54,12 @@ water.fieldOrder = {
         "coldDangerous",
         "hasBottom",
 }
-water.fillColor = {lightBlue[1] * 0.3, lightBlue[2] * 0.3, lightBlue[3] * 0.3, 0.6}
-water.borderColor = {lightBlue[1] * 0.8, lightBlue[2] * 0.8, lightBlue[3] * 0.8, 0.8}
+function water.sprite(room, entity)
+    return {
+        drawableRectangle.fromRectangle("fill", entity.x, entity.y, entity.width/2,entity.height, entity.hotColor),
+        drawableRectangle.fromRectangle("fill", entity.x+entity.width/2, entity.y, entity.width/2,entity.height, entity.coldColor),
+    }
+end
 
 water.depth = 0
 
