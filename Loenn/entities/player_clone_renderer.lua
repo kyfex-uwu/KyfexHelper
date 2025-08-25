@@ -14,7 +14,7 @@ local renderer = {
             },
         }
     },
-    texture="loenn/kyfexuwu/clone",
+    texture="loenn/KyfexHelper/clone",
     fieldOrder={
         "x","y",
         "xOffset", "yOffset",

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sprites>
+  <KyfexHelper_lock path="objects/KyfexHelper/lock" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+    <Anim id="open" delay="0.06" frames="0-9"/>
+    <Anim id="burst" delay="0.06" frames="10-18"/>
+  </KyfexHelper_lock>
+
+  <KyfexHelper_bubbleRedirector_green path="objects/KyfexHelper/bubble_redirector/green_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0-4"/>
+  </KyfexHelper_bubbleRedirector_green>
+  <KyfexHelper_bubbleRedirector_green_arrowleft path="objects/KyfexHelper/bubble_redirector/green_arrowleft_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_green_arrowleft>
+  <KyfexHelper_bubbleRedirector_green_arrowright path="objects/KyfexHelper/bubble_redirector/green_arrowright_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_green_arrowright>
+  <KyfexHelper_bubbleRedirector_green_arrowdown path="objects/KyfexHelper/bubble_redirector/green_arrowdown_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_green_arrowdown>
+  <KyfexHelper_bubbleRedirector_green_arrowany path="objects/KyfexHelper/bubble_redirector/green_arrowany_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_green_arrowany>
+  <KyfexHelper_bubbleRedirector_green_arrowup path="objects/KyfexHelper/bubble_redirector/green_arrowup_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_green_arrowup>
+  
+  <KyfexHelper_bubbleRedirector_red path="objects/KyfexHelper/bubble_redirector/red_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0-4"/>
+  </KyfexHelper_bubbleRedirector_red>
+  <KyfexHelper_bubbleRedirector_red_arrowleft path="objects/KyfexHelper/bubble_redirector/red_arrowleft_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_red_arrowleft>
+  <KyfexHelper_bubbleRedirector_red_arrowright path="objects/KyfexHelper/bubble_redirector/red_arrowright_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_red_arrowright>
+  <KyfexHelper_bubbleRedirector_red_arrowdown path="objects/KyfexHelper/bubble_redirector/red_arrowdown_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_red_arrowdown>
+  <KyfexHelper_bubbleRedirector_red_arrowany path="objects/KyfexHelper/bubble_redirector/red_arrowany_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_red_arrowany>
+  <KyfexHelper_bubbleRedirector_red_arrowup path="objects/KyfexHelper/bubble_redirector/red_arrowup_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_red_arrowup>
+  
+  <KyfexHelper_bubbleRedirector_custom path="objects/KyfexHelper/bubble_redirector/custom_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0-4"/>
+  </KyfexHelper_bubbleRedirector_custom>
+  <KyfexHelper_bubbleRedirector_custom_arrowleft path="objects/KyfexHelper/bubble_redirector/custom_arrowleft_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_custom_arrowleft>
+  <KyfexHelper_bubbleRedirector_custom_arrowright path="objects/KyfexHelper/bubble_redirector/custom_arrowright_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_custom_arrowright>
+  <KyfexHelper_bubbleRedirector_custom_arrowdown path="objects/KyfexHelper/bubble_redirector/custom_arrowdown_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_custom_arrowdown>
+  <KyfexHelper_bubbleRedirector_custom_arrowany path="objects/KyfexHelper/bubble_redirector/custom_arrowany_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_custom_arrowany>
+  <KyfexHelper_bubbleRedirector_custom_arrowup path="objects/KyfexHelper/bubble_redirector/custom_arrowup_" start="idle">
+    <Justify x="0.5" y="0.5" />
+    <Loop id="idle" delay="0.1" frames="0"/>
+  </KyfexHelper_bubbleRedirector_custom_arrowup>
+</Sprites>

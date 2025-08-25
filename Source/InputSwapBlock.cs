@@ -32,22 +32,23 @@ public class InputSwapBlock : SwapBlock {
     }
     private static void inputListeners(On.Monocle.Scene.orig_Update orig, Scene self) {
         orig(self);
-        foreach (var listener in self.Tracker.GetComponents<InputListener>()) {
-            switch ((listener as InputListener).input) {
+        foreach (var e in self.Tracker.GetComponents<InputListener>()) {
+            var listener = e as InputListener;
+            switch (listener.input) {
                 case InputListener.Input.DASH: 
-                    if(Input.Dash.Pressed) (listener as InputListener).OnInput();
+                    if(Input.Dash.Pressed) listener.OnInput();
                     break;
                 case InputListener.Input.DEMO: 
-                    if(Input.CrouchDash.Pressed) (listener as InputListener).OnInput();
+                    if(Input.CrouchDash.Pressed) listener.OnInput();
                     break;
                 case InputListener.Input.DASHORDEMO: 
-                    if(Input.CrouchDash.Pressed || Input.Dash.Pressed) (listener as InputListener).OnInput();
+                    if(Input.CrouchDash.Pressed || Input.Dash.Pressed) listener.OnInput();
                     break;
                 case InputListener.Input.JUMP: 
-                    if(Input.Jump.Pressed) (listener as InputListener).OnInput();
+                    if(Input.Jump.Pressed) listener.OnInput();
                     break;
                 case InputListener.Input.GRAB: 
-                    if(Input.Grab.Pressed) (listener as InputListener).OnInput();
+                    if(Input.Grab.Pressed) listener.OnInput();
                     break;
             }
         }

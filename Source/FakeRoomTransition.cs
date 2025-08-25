@@ -19,33 +19,43 @@ public class FakeRoomTransition : Entity {
         this.Add(new PlayerCollider(this.OnTransition));
     }
 
-    private bool isPlayerBehind = false;
-    private void updateCollision() {
+    private bool isPlayerOnPosSide = false;
+
+    public bool getPositionOnPosSite(Vector2 pos) {
         if (this.isHorizontal) {
-            if (this.Scene.Tracker.GetEntity<Player>()?.Center.Y > this.Y) {
-                if (!this.isPlayerBehind) {
-                    this.Collider.Position.Y = -this.Collider.Height;
-                    this.isPlayerBehind = true;
-                }
-            } else {
-                if (this.isPlayerBehind) {
-                    this.Collider.Position.Y = 0;
-                    this.isPlayerBehind = false;
-                }
-            }
+            return (pos.Y > this.Y);
         } else {
-            if (this.Scene.Tracker.GetEntity<Player>()?.Center.X > this.X) {
-                if (!this.isPlayerBehind) {
-                    this.Collider.Position.X = -this.Collider.Width;
-                    this.isPlayerBehind = true;
+            return(pos.X > this.X);
+        }
+    }
+    private void updateCollision() {
+        var player = this.Scene.Tracker.GetEntity<Player>();
+        if (player != null) {
+            this.isPlayerOnPosSide = this.getPositionOnPosSite(player.Center);
+            if (this.isHorizontal) {
+                if (this.Scene.Tracker.GetEntity<Player>()?.Center.Y > this.Y) {
+                    if (!this.isPlayerOnPosSide) {
+                        this.Collider.Position.Y = -this.Collider.Height;
+                    }
+                } else {
+                    if (this.isPlayerOnPosSide) {
+                        this.Collider.Position.Y = 0;
+                    }
                 }
             } else {
-                if (this.isPlayerBehind) {
-                    this.Collider.Position.X = 0;
-                    this.isPlayerBehind = false;
+                if (this.Scene.Tracker.GetEntity<Player>()?.Center.X > this.X) {
+                    if (!this.isPlayerOnPosSide) {
+                        this.Collider.Position.X = -this.Collider.Width;
+                    }
+                } else {
+                    if (this.isPlayerOnPosSide) {
+                        this.Collider.Position.X = 0;
+                    }
                 }
             }
         }
+        // new RespawnTargetTrigger().BottomCenter.
+        // this.SceneAs<Level>().Tracker.Entities.
     }
     public override void Awake(Scene scene) {
         base.Awake(scene);
@@ -74,34 +84,57 @@ public class FakeRoomTransition : Entity {
                 component.Stop();
         }
 
-        if (!this.isHorizontal) player.X = this.X + player.Width * (this.isPlayerBehind ? -1 : 1) / 2;
-        else player.Y = this.Y + player.Height * (this.isPlayerBehind ? 0 : 1);
+        if (!this.isHorizontal) player.X = this.X + player.Width * (this.isPlayerOnPosSide ? -1 : 1) / 2;
+        else player.Y = this.Y + player.Height * (this.isPlayerOnPosSide ? 0 : 1);
 
-        Vector2 direc;
         Vector2 playerTo = player.Position;
-        while (!this.isHorizontal && playerTo.Y >= level.Bounds.Bottom)
-            --playerTo.Y;
-        if (this.isHorizontal) {
-            direc = Vector2.UnitY;
-            if (this.isPlayerBehind) playerTo.Y = this.Y;
-            else playerTo.Y = this.Y+player.Height;
-        } else {
-            direc = Vector2.UnitX;
-            if (this.isPlayerBehind) playerTo.X = this.X-player.Width/2;
-            else playerTo.X = this.X+player.Width/2;
+        
+        bool cameraShouldRespect = player.CollideAll<RespectFakeTransitionCamera>().Count > 0;
+        foreach(var e in !cameraShouldRespect?new[]{this}:
+                    this.Scene.Tracker.GetEntities<FakeRoomTransition>().ToArray()) {
+            var wall = e as FakeRoomTransition;
+            if (wall.isHorizontal) {
+                if (this.isPlayerOnPosSide) playerTo.Y = Math.Max(playerTo.Y,wall.Y);
+                else playerTo.Y = Math.Min(playerTo.Y, wall.Y+player.Height);
+            } else {
+                if (this.isPlayerOnPosSide)  playerTo.X = Math.Max(playerTo.X,wall.X-player.Width/2);
+                else playerTo.X = Math.Min(playerTo.X, wall.X+player.Width/2);
+            }
         }
-        direc *= this.isPlayerBehind?1:-1;
 
+        Vector2 cameraTo = playerTo-level.Camera.Zoom*new Vector2(22.5f, 40)/2;
+        Vector2 topLeftest = new Vector2(float.NegativeInfinity, float.NegativeInfinity);
+        Vector2 bottomRightest = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
+        if (cameraShouldRespect) {
+            foreach (var e in this.Scene.Tracker.GetEntities<FakeRoomTransition>()) {
+                var wall = e as FakeRoomTransition;
+
+                if (wall.isHorizontal) {
+                    if (!wall.getPositionOnPosSite(playerTo)) {
+                        bottomRightest.X = Math.Min(bottomRightest.X, wall.X);
+                    } else {
+                        topLeftest.X = Math.Max(topLeftest.X, wall.X);
+                    }
+                } else {
+                    if (!wall.getPositionOnPosSite(playerTo)) {
+                        bottomRightest.Y = Math.Min(bottomRightest.Y, wall.Y);
+                    } else {
+                        topLeftest.Y = Math.Max(topLeftest.Y, wall.Y);
+                    }
+                }
+            }
+
+            if (topLeftest.X < cameraTo.X) cameraTo.X = topLeftest.X;
+            if (topLeftest.Y < cameraTo.Y) cameraTo.Y = topLeftest.Y;
+            if (bottomRightest.X-22.5f*8 > cameraTo.X) cameraTo.X = bottomRightest.X-22.5f*8;
+            if (bottomRightest.Y-40*8 > cameraTo.Y+40*8) cameraTo.Y = bottomRightest.X-40*8;
+        }
+        
         lockCam = false;
-        bool cameraFinished = player.CollideAll<RespectFakeTransitionCamera>().Count == 0;
+        bool cameraFinished = !cameraShouldRespect;
         float cameraAt = cameraFinished ? 1 : 0;
         var cameraFrom = level.Camera.Position;
-        Vector2 cameraTo;
-        if (this.isHorizontal) {
-            cameraTo = new Vector2(cameraFrom.X, this.Y + (this.isPlayerBehind ? -1 : 0)*level.Camera.Viewport.Height);
-        } else {
-            cameraTo = new Vector2(this.X + (this.isPlayerBehind ? -1 : 0)*level.Camera.Viewport.Width, cameraFrom.Y);
-        }
+        Vector2 direc = (this.isHorizontal ? Vector2.UnitY : Vector2.UnitX) * (this.isPlayerOnPosSide?1:-1);
         while (!player.TransitionTo(playerTo, direc) || cameraAt < 1.0) {
             yield return null;
             if (!cameraFinished) {
@@ -123,10 +156,10 @@ public class FakeRoomTransition : Entity {
         if (!this.canGoBack) {
             if (this.isHorizontal) {
                 //todo
-                level.Add(new InvisibleBarrier(this.Position + (this.isPlayerBehind?-Vector2.UnitY:Vector2.Zero),
+                level.Add(new InvisibleBarrier(this.Position + (this.isPlayerOnPosSide?-Vector2.UnitY:Vector2.Zero),
                     this.size, 0));
             } else {
-                level.Add(new InvisibleBarrier(this.Position + (this.isPlayerBehind?-Vector2.UnitX:Vector2.Zero),
+                level.Add(new InvisibleBarrier(this.Position + (this.isPlayerOnPosSide?-Vector2.UnitX:Vector2.Zero),
                     0, this.size));
             }
         }

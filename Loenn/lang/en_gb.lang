@@ -83,4 +83,13 @@ entities.KyfexHelper/CustomCollidableBadeline.attributes.description.playerHitTy
 entities.KyfexHelper/CustomCollidableBadeline.attributes.description.holdableHitType=[Vanilla] Whether the camera should be locked vertically, functioning similarly to a killbox.
 entities.KyfexHelper/CustomCollidableBadeline.attributes.description.customSprite=[Vanilla] Whether the camera should be locked vertically, functioning similarly to a killbox.
 
+# core water
+entities.KyfexHelper/CoreWater.placements.name.main=Core Water
+
+# core water
+entities.KyfexHelper/BubbleRedirector.placements.name.green=Booster Redirector [Green]
+entities.KyfexHelper/BubbleRedirector.placements.name.red=Booster Redirector [Red]
+entities.KyfexHelper/BubbleRedirector.placements.name.custom=Booster Redirector [Custom]
+entities.KyfexHelper/BubbleRedirector.attributes.description.tint=Changes the tint of this entity. (You probably want this to be white on anything other than custom
+
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

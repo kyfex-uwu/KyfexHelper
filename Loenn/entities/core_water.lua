@@ -4,7 +4,7 @@ local water = {}
 
 water.name = "KyfexHelper/CoreWater"
 water.placements = {
-    name = "water",
+    name = "main",
     data = {
         hasBottom = false,
         width = 8,

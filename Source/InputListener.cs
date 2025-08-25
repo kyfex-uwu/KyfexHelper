@@ -4,7 +4,7 @@ using Monocle;
 
 namespace Celeste.Mod.KyfexHelper;
 
-[Tracked(false)]
+[Tracked]
 public class InputListener : Component {
     public enum Input {
         JUMP, DASH, DEMO, GRAB, DASHORDEMO
