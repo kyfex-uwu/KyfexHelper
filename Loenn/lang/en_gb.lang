@@ -83,6 +83,15 @@ entities.KyfexHelper/CustomCollidableBadeline.attributes.description.playerHitTy
 entities.KyfexHelper/CustomCollidableBadeline.attributes.description.holdableHitType=[Vanilla] Whether the camera should be locked vertically, functioning similarly to a killbox.
 entities.KyfexHelper/CustomCollidableBadeline.attributes.description.customSprite=[Vanilla] Whether the camera should be locked vertically, functioning similarly to a killbox.
 
+# custom badeline boost
+entities.KyfexHelper/CustomDirectionBadelineBoost.placements.name.main=Custom Direction Badeline Boost
+entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.lockCamera=Upon activation, the camera cannot pan away from the entity.
+entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.canSkip=Badeline will skip to the next position if the player is too far to the right of the current one (100 pixels).
+entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.finalCh9Boost=Whether this boost should be able to end the level, transporting the player to room "end-granny". If the player has a golden berry, and this isn't a golden boost, they are transported to the golden room "end-golden" instead.\nRequires a Blackhole in the background, does not work if it is in the foreground.
+entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.finalCh9GoldenBoost=Used to indicate that we are in the golden room and boosting out. Prevents the check in finalCh9Boost, and always ends the level if finalCh9Boost is also set.
+entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.finalCh9Dialog=If finalCh9Boost is also set and doesn't go to golden room, this will trigger the Farewell ending dialog.
+entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.direction=The direction to boost the player in. 90 is up, 180 is left, and 0 is right. Measured in degrees
+
 # core water
 entities.KyfexHelper/CoreWater.placements.name.main=Core Water
 

@@ -46,6 +46,7 @@ public class KyfexHelperModule : EverestModule {
         InputSwapBlock.Load();
         RespectFakeTransitionCamera.Load();
         CustomCollidableBadeline.Load();
+        CustomDirectionBadelineBoost.Load();
     }
 
     public override void Unload() {
@@ -54,6 +55,7 @@ public class KyfexHelperModule : EverestModule {
         InputSwapBlock.Unload();
         RespectFakeTransitionCamera.Unload();
         CustomCollidableBadeline.Unload();
+        CustomDirectionBadelineBoost.Unload();
     }
     
     private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata{ Name = "auspicioushelper", Version = new Version(0, 2, 1) };
