@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
-using NLua;
 
 namespace Celeste.Mod.KyfexHelper;
 

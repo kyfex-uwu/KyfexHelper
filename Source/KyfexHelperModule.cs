@@ -32,6 +32,12 @@ public class KyfexHelperModule : EverestModule {
             AuspiciousCompat.Load();
         if (Everest.Loader.DependencyLoaded(luaCutscenesDependency))
             LuaCutscenesCompat.Load();
+        if (Everest.Loader.DependencyLoaded(frostHelperDependency))
+            FrostHelperCompat.Load();
+        if (Everest.Loader.DependencyLoaded(communalDependency))
+            CommunalHelperCompat.Load();
+        if (Everest.Loader.DependencyLoaded(crystallineDependency))
+            CrystallineHelperCompat.Load();
     }
 
     private static IEnumerator keyUnlockRoutine(Follower follower, FlagUnlock unlocker) {
@@ -39,7 +45,7 @@ public class KyfexHelperModule : EverestModule {
         yield return ((Key)follower.Entity).UseRoutine(unlocker.Center);
         if(unlocker.SFXwaitForUnlock) unlocker.playSound();
     }
-
+    
     public override void Load() {
         KevinZipper.Load();
         PlayerCloneRenderer.Load();
@@ -47,6 +53,11 @@ public class KyfexHelperModule : EverestModule {
         RespectFakeTransitionCamera.Load();
         CustomCollidableBadeline.Load();
         CustomDirectionBadelineBoost.Load();
+        
+        if (Everest.Loader.DependencyLoaded(communalDependency))
+            CommunalHelperCompat.LoadHooks();
+        if (Everest.Loader.DependencyLoaded(crystallineDependency))
+            CrystallineHelperCompat.LoadHooks();
     }
 
     public override void Unload() {
@@ -56,8 +67,16 @@ public class KyfexHelperModule : EverestModule {
         RespectFakeTransitionCamera.Unload();
         CustomCollidableBadeline.Unload();
         CustomDirectionBadelineBoost.Unload();
+        
+        if (Everest.Loader.DependencyLoaded(communalDependency))
+            CommunalHelperCompat.UnloadHooks();
+        if (Everest.Loader.DependencyLoaded(crystallineDependency))
+            CrystallineHelperCompat.UnloadHooks();
     }
     
     private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata{ Name = "auspicioushelper", Version = new Version(0, 2, 1) };
     private static EverestModuleMetadata luaCutscenesDependency = new EverestModuleMetadata{ Name = "LuaCutscenes", Version = new Version(0, 2, 13) };
+    private static EverestModuleMetadata frostHelperDependency = new EverestModuleMetadata{ Name = "FrostHelper", Version = new Version(1, 72, 0) };
+    private static EverestModuleMetadata communalDependency = new EverestModuleMetadata{ Name = "CommunalHelper", Version = new Version(1, 24, 4) };
+    private static EverestModuleMetadata crystallineDependency = new EverestModuleMetadata{ Name = "CrystallineHelper", Version = new Version(1, 16, 6) };
 }

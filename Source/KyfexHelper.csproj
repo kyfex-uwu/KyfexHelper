@@ -32,6 +32,15 @@
         <Reference Include="LuaCutscenes">
             <HintPath>../deps/LuaCutscenes.dll</HintPath>
         </Reference>
+        <Reference Include="FrostHelper">
+            <HintPath>../deps/FrostTempleHelper.dll</HintPath>
+        </Reference>
+        <Reference Include="CommunalHelper">
+            <HintPath>../deps/CommunalHelper.dll</HintPath>
+        </Reference>
+        <Reference Include="CrystallineHelper">
+            <HintPath>../deps/vitmod.dll</HintPath>
+        </Reference>
         <Reference Include="NLua">
             <HintPath>../../../NLua.dll</HintPath>
         </Reference>
