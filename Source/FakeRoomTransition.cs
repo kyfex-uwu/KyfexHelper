@@ -21,7 +21,7 @@ public class FakeRoomTransition : Entity {
 
     private bool isPlayerOnPosSide = false;
 
-    public bool getPositionOnPosSite(Vector2 pos) {
+    public bool getPositionOnPosSide(Vector2 pos) {
         if (this.isHorizontal) {
             return (pos.Y > this.Y);
         } else {
@@ -31,31 +31,21 @@ public class FakeRoomTransition : Entity {
     private void updateCollision() {
         var player = this.Scene.Tracker.GetEntity<Player>();
         if (player != null) {
-            this.isPlayerOnPosSide = this.getPositionOnPosSite(player.Center);
+            this.isPlayerOnPosSide = this.getPositionOnPosSide(player.Center);
             if (this.isHorizontal) {
-                if (this.Scene.Tracker.GetEntity<Player>()?.Center.Y > this.Y) {
-                    if (!this.isPlayerOnPosSide) {
-                        this.Collider.Position.Y = -this.Collider.Height;
-                    }
+                if (player.Center.Y > this.Y) {
+                    this.Collider.Position.Y = -this.Collider.Height;
                 } else {
-                    if (this.isPlayerOnPosSide) {
-                        this.Collider.Position.Y = 0;
-                    }
+                    this.Collider.Position.Y = 0;
                 }
             } else {
-                if (this.Scene.Tracker.GetEntity<Player>()?.Center.X > this.X) {
-                    if (!this.isPlayerOnPosSide) {
-                        this.Collider.Position.X = -this.Collider.Width;
-                    }
+                if (player.Center.X > this.X) {
+                    this.Collider.Position.X = -this.Collider.Width;
                 } else {
-                    if (this.isPlayerOnPosSide) {
-                        this.Collider.Position.X = 0;
-                    }
+                    this.Collider.Position.X = 0;
                 }
             }
         }
-        // new RespawnTargetTrigger().BottomCenter.
-        // this.SceneAs<Level>().Tracker.Entities.
     }
     public override void Awake(Scene scene) {
         base.Awake(scene);
@@ -102,21 +92,24 @@ public class FakeRoomTransition : Entity {
             }
         }
 
-        Vector2 cameraTo = playerTo-level.Camera.Zoom*new Vector2(22.5f, 40)/2;
-        Vector2 topLeftest = new Vector2(float.NegativeInfinity, float.NegativeInfinity);
-        Vector2 bottomRightest = new Vector2(float.PositiveInfinity, float.PositiveInfinity);
+        Vector2 cameraTo = level.Camera.Position + new Vector2();
+        if (this.isHorizontal) {
+            cameraTo.Y -= this.getPositionOnPosSide(playerTo) ? 0 : level.Camera.Zoom * 22.5f;
+        } else {
+            cameraTo.X -= this.getPositionOnPosSide(playerTo) ? 0 : level.Camera.Zoom * 40f;
+        }
+        Vector2 topLeftest = new Vector2(0,0);
+        Vector2 bottomRightest = new Vector2(level.Bounds.Width-40*8, level.Bounds.Height-22.5f*8);
         if (cameraShouldRespect) {
-            foreach (var e in this.Scene.Tracker.GetEntities<FakeRoomTransition>()) {
-                var wall = e as FakeRoomTransition;
-
+            foreach (FakeRoomTransition wall in this.Scene.Tracker.GetEntities<FakeRoomTransition>()) {
                 if (wall.isHorizontal) {
-                    if (!wall.getPositionOnPosSite(playerTo)) {
+                    if (!wall.getPositionOnPosSide(playerTo)) {
                         bottomRightest.X = Math.Min(bottomRightest.X, wall.X);
                     } else {
                         topLeftest.X = Math.Max(topLeftest.X, wall.X);
                     }
                 } else {
-                    if (!wall.getPositionOnPosSite(playerTo)) {
+                    if (!wall.getPositionOnPosSide(playerTo)) {
                         bottomRightest.Y = Math.Min(bottomRightest.Y, wall.Y);
                     } else {
                         topLeftest.Y = Math.Max(topLeftest.Y, wall.Y);
@@ -128,7 +121,9 @@ public class FakeRoomTransition : Entity {
             if (topLeftest.Y < cameraTo.Y) cameraTo.Y = topLeftest.Y;
             if (bottomRightest.X-22.5f*8 > cameraTo.X) cameraTo.X = bottomRightest.X-22.5f*8;
             if (bottomRightest.Y-40*8 > cameraTo.Y+40*8) cameraTo.Y = bottomRightest.X-40*8;
+            // cameraTo = bottomRightest;
         }
+        // cameraTo += new Vector2(level.Bounds.Left, level.Bounds.Top);
         
         lockCam = false;
         bool cameraFinished = !cameraShouldRespect;

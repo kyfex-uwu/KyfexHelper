@@ -20,13 +20,13 @@ public class CommunalHelperCompat {
             changeLength2));
         On.Celeste.Booster.PlayerReleased += oneTime;
         CloneBooster.Load();
-        CloneDreamBooster.Load();
+        CloneDreamBooster.LoadHooks();
     }
     public static void UnloadHooks() {
         foreach (var hook in hooks) hook.Dispose();
         On.Celeste.Booster.PlayerReleased -= oneTime;
         CloneBooster.Unload();
-        CloneDreamBooster.Unload();
+        CloneDreamBooster.UnloadHooks();
     }
 
     private static void oneTime(On.Celeste.Booster.orig_PlayerReleased orig, Booster self) {

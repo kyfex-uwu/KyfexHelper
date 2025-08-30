@@ -6,13 +6,13 @@ namespace Celeste.Mod.KyfexHelper;
 
 public class CloneDreamBooster : DreamBooster {
     private static bool loaded = false;
-    public static void Load() {
+    public static void LoadHooks() {
         if (loaded) return;
         loaded = true;
         On.Celeste.Booster.OnPlayer += customOnPlayer;
     }
 
-    public static void Unload() {
+    public static void UnloadHooks() {
         if (!loaded) return;
         On.Celeste.Booster.OnPlayer -= customOnPlayer;
     }

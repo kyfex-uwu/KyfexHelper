@@ -37,7 +37,7 @@ public class FlagUnlock : Entity {
         this.SFXwaitForUnlock = data.Bool("waitForUnlock", true);
         this.unlockables = data.String("unlockables", "Celeste.Key").Split(",");
         this.requireUnobstructed = data.Bool("requireUnobstructed", true);
-        //this.temporary = data.Bool("temporary", false);
+        this.temporary = data.Bool("temporary", false);
         this.shake = data.Bool("shake", true);
         this.flagToSet = data.String("flag", "");
         this.time = data.Float("time", 1);
@@ -102,7 +102,7 @@ public class FlagUnlock : Entity {
                 var field = follower.Entity.GetType().GetField("sprite");
                 if (field != null && field.FieldType == typeof(Sprite))
                     ((Sprite)field.GetValue(follower.Entity)).Play("unlock");
-            } catch (Exception _) { }
+            } catch (Exception) { }
 
             tween2.OnUpdate = t => {
                 entity.Position = this.Center;

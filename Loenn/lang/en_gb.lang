@@ -85,6 +85,7 @@ entities.KyfexHelper/CustomCollidableBadeline.attributes.description.customSprit
 
 # custom badeline boost
 entities.KyfexHelper/CustomDirectionBadelineBoost.placements.name.main=Custom Direction Badeline Boost
+triggers.KyfexHelper/CustomDirectionBadelineBoost.placements.description.main=A badeline boost that boosts you in an selected direction (360 degress)
 entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.lockCamera=Upon activation, the camera cannot pan away from the entity.
 entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.canSkip=Badeline will skip to the next position if the player is too far to the right of the current one (100 pixels).
 entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.finalCh9Boost=Whether this boost should be able to end the level, transporting the player to room "end-granny". If the player has a golden berry, and this isn't a golden boost, they are transported to the golden room "end-golden" instead.\nRequires a Blackhole in the background, does not work if it is in the foreground.
@@ -95,10 +96,23 @@ entities.KyfexHelper/CustomDirectionBadelineBoost.attributes.description.directi
 # core water
 entities.KyfexHelper/CoreWater.placements.name.main=Core Water
 
-# core water
+# bubble redirector
 entities.KyfexHelper/BubbleRedirector.placements.name.green=Booster Redirector [Green]
 entities.KyfexHelper/BubbleRedirector.placements.name.red=Booster Redirector [Red]
 entities.KyfexHelper/BubbleRedirector.placements.name.custom=Booster Redirector [Custom]
-entities.KyfexHelper/BubbleRedirector.attributes.description.tint=Changes the tint of this entity. (You probably want this to be white on anything other than custom
+entities.KyfexHelper/BubbleRedirector.placements.description.green=An entity that redirects a booster if the player collides with it
+entities.KyfexHelper/BubbleRedirector.placements.description.red=An entity that redirects a booster if the player collides with it
+entities.KyfexHelper/BubbleRedirector.placements.description.custom=An entity that redirects a booster if the player collides with it
+entities.KyfexHelper/BubbleRedirector.attributes.description.tint=Changes the tint of this entity. (You probably want this to be white on anything other than custom)
+
+# gear field
+entities.KyfexHelper/GearField.placements.name.main=Zipmover Gear Field
+entities.KyfexHelper/GearField.placements.description.main=When placed in a Template Zipmover, it renders gears similar to a regular Zipmover
+# zipper decal
+entities.KyfexHelper/ZipperTrafficLight.placements.name.main=Zipmover Traffic Light
+entities.KyfexHelper/GearField.placements.description.main=When placed in a Template Zipmover, it renders 3 decals depending on the state of the zipmover
+entities.KyfexHelper/GearField.attributes.name.decal1=Red Light Decal
+entities.KyfexHelper/GearField.attributes.name.decal2=Yellow Light Decal
+entities.KyfexHelper/GearField.attributes.name.decal3=Green Light Decal
 
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

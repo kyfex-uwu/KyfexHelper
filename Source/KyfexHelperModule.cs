@@ -58,6 +58,8 @@ public class KyfexHelperModule : EverestModule {
             CommunalHelperCompat.LoadHooks();
         if (Everest.Loader.DependencyLoaded(crystallineDependency))
             CrystallineHelperCompat.LoadHooks();
+        if (Everest.Loader.DependencyLoaded(auspiciousDependency))
+            AuspiciousCompat.LoadHooks();
     }
 
     public override void Unload() {
@@ -72,6 +74,8 @@ public class KyfexHelperModule : EverestModule {
             CommunalHelperCompat.UnloadHooks();
         if (Everest.Loader.DependencyLoaded(crystallineDependency))
             CrystallineHelperCompat.UnloadHooks();
+        if (Everest.Loader.DependencyLoaded(auspiciousDependency))
+            AuspiciousCompat.UnloadHooks();
     }
     
     private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata{ Name = "auspicioushelper", Version = new Version(0, 2, 1) };
