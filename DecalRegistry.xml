@@ -1,0 +1,11 @@
+<decals>
+  <decal path="KyfexHelper/ZipperTrafficLight/redlight">
+    <bloom offsetX="0" offsetY="3" alpha="1" radius="6"/>
+  </decal>
+  <decal path="KyfexHelper/ZipperTrafficLight/yellowlight">
+    <bloom offsetX="0" offsetY="6" alpha="1" radius="6"/>
+  </decal>
+  <decal path="KyfexHelper/ZipperTrafficLight/greenlight">
+    <bloom offsetX="0" offsetY="9" alpha="1" radius="6"/>
+  </decal>
+</decals>

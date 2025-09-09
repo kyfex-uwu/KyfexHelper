@@ -30,6 +30,13 @@ public class ZipperTrafficLight : Entity{
 
     public override void Update() {
         base.Update();
+
+        if (!this.Visible) {
+            this.enable(false, 1);
+            this.enable(false, 2);
+            this.enable(false, 3);
+            return;
+        }
         
         if (!(AuspiciousCompat.tcComponentParentField.GetValue(this.tcComponent) is TemplateZipmover template)) return;
         var spline = (SplineAccessor)AuspiciousCompat.sposField.GetValue(template);
@@ -81,6 +88,7 @@ public class ZipperTrafficLight : Entity{
                 break;
         }
         if(!enabled) decalObj.RemoveSelf();
-        else this.Scene.Add(decalObj);
+        else 
+            this.Scene.Add(decalObj);
     }
 }

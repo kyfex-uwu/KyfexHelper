@@ -18,6 +18,7 @@ local entity = {
         },
         bgColor={
             fieldType="color",
+            useAlpha=true,
         }
     }
 }

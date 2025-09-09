@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 using Celeste.Mod.auspicioushelper;
 using Celeste.Mod.auspicioushelper.iop;
@@ -20,7 +21,9 @@ public class GearField : Entity {
         this.Depth = -10000;
         this.Collider = new Hitbox(data.Width, data.Height);
         this.cogs = GFX.Game.GetAtlasSubtextures(data.String("gearPath", "objects/zipmover/innercog"));
-        this.bgColor = data.HexColor("bgColor", Color.Black);
+        this.bgColor = Calc.HexToColor(data.String("bgColor", "000000").PadRight(8,'f').Substring(0, 6)) *
+                       (int.Parse(data.String("bgColor", "000000ff").PadRight(8, 'f').Substring(6, 2),
+                           NumberStyles.HexNumber) / 255f);
         
         this.Add(this.tcComponent = new TemplateIop.TemplateChildComponent(this));
     }

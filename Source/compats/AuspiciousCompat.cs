@@ -22,6 +22,8 @@ public class AuspiciousCompat {
             new GearField(e, o).tcComponent);
         TemplateIop.customClarify("KyfexHelper/ZipperTrafficLight", (_, _, o, e) => 
             new ZipperTrafficLight(e, o).tcComponent);
+        TemplateIop.customClarify("KyfexHelper/KevinFace", (_, _, o, e) => 
+            new KevinFace(e, o).tcComponent);
 
         BubbleRedirector.checkAuspiciousBoosters = true;
     }
@@ -42,9 +44,10 @@ public class AuspiciousCompat {
 
     private static List<Hook> hooks = new();
     public static void LoadHooks() {
-        
+        KevinFace.LoadHooks();
     }
     public static void UnloadHooks() {
+        KevinFace.UnloadHooks();
         foreach (var hook in hooks) hook.Dispose();
     }
 }

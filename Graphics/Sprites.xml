@@ -81,4 +81,17 @@
     <Justify x="0.5" y="0.5" />
     <Loop id="idle" delay="0.1" frames="0"/>
   </KyfexHelper_bubbleRedirector_custom_arrowup>
+
+
+  <KyfexHelper_giant_crushblock_face path="objects/KyfexHelper/crushblock/giant/" start="idle">
+    <Center/>
+    <Loop id="idle" path="idle_face" delay="0.08"/>
+    <Anim id="hit" path="hit" delay="0.08"/>
+    <Anim id="hurt" path="hurt" delay="0.08" goto="idle"/>
+    <Loop id="left" path="hit_left" delay="0.08"/>
+    <Loop id="right" path="hit_right" delay="0.08"/>
+    <Loop id="up" path="hit_up" delay="0.08"/>
+    <Loop id="down" path="hit_down" delay="0.08"/>
+  </KyfexHelper_giant_crushblock_face>
+  
 </Sprites>

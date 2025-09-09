@@ -2,6 +2,7 @@ local rect = require("structs.rectangle")
 
 return {
     name="KyfexHelper/ZipperTrafficLight",
+    associatedMods={"KyfexHelper", "auspicioushelper"},
     depth=-10001,
     placements={
         name="main",
