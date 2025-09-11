@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Reflection;
 using Celeste.Mod.auspicioushelper;
 using Celeste.Mod.auspicioushelper.iop;
 using Celeste.Mod.Entities;

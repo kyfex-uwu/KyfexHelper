@@ -114,5 +114,7 @@ entities.KyfexHelper/GearField.placements.description.main=When placed in a Temp
 entities.KyfexHelper/GearField.attributes.name.decal1=Red Light Decal
 entities.KyfexHelper/GearField.attributes.name.decal2=Yellow Light Decal
 entities.KyfexHelper/GearField.attributes.name.decal3=Green Light Decal
+# kevin face
+entities.KyfexHelper/KevinFace.placements.name.main=[WIP] Kevin Face
 
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

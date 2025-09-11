@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
@@ -19,11 +20,16 @@ public class LuaCutscenesCompat {
     }
 
     public static object parseJson(string str) {
-        return transform(JsonValue.Parse(str));
+        try {
+            return transform(JsonValue.Parse(str));
+        } catch (Exception e) {
+            Logger.Info("KyfexHelper", "Parse json error:\n"+e);
+            return null;
+        }
     }
 
     private static object transform(JsonNode node) {
-        //Logger.Info("KyfexHelper", node.ToString());
+        if (node == null) return null;
         switch (node.GetValueKind()) {
             case JsonValueKind.Array: {
                 var toReturn = new object[node.AsArray().Count];
@@ -37,6 +43,7 @@ public class LuaCutscenesCompat {
                 var toReturn = new Dictionary<string, object>();
                 foreach (var (key, val) in node.AsObject()) {
                     toReturn[key] = transform(val);
+                    if (toReturn[key] == null) toReturn.Remove(key);
                 }
                 
                 return toReturn;
@@ -47,7 +54,6 @@ public class LuaCutscenesCompat {
             case JsonValueKind.Number: return node.AsValue().TryGetValue(out double ret) ? ret : null;
             case JsonValueKind.String: return node.AsValue().TryGetValue(out string ret2) ? ret2 : null;
         }
-        //Logger.Info("KyfexHelper", "->"+node.ToString());
 
         return null;
     }
