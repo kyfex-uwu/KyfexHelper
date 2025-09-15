@@ -61,6 +61,19 @@ entities.KyfexHelper/InputSwapBlock.placements.name.moongrab=Input Swap Block (M
 entities.KyfexHelper/InputSwapBlock.attributes.description.theme=The visual theme of the swap block
 entities.KyfexHelper/InputSwapBlock.attributes.description.input=Which input triggers the swap block
 
+entities.KyfexHelper/InputSwapBlock.attributes.description.inactive=(Leave blank for default) The path to the image to use for the swap block when it's not swapping
+entities.KyfexHelper/InputSwapBlock.attributes.description.active=(Leave blank for default) The path to the image to use for the swap block when it is swapping
+entities.KyfexHelper/InputSwapBlock.attributes.description.inactiveCenter=(Leave blank for default) The name of the sprite to use for the swap block's center when it's not swapping
+entities.KyfexHelper/InputSwapBlock.attributes.description.activeCenter=(Leave blank for default) The name of the sprite to use for the swap block's center when it is swapping
+entities.KyfexHelper/InputSwapBlock.attributes.description.bgTex=(Leave blank for default) The path to the image to use for the swap block's background (the lines part)
+entities.KyfexHelper/InputSwapBlock.attributes.description.underBg=(Leave blank for default) The path to the image to use for the swap block's background (the tiles part)
+entities.KyfexHelper/InputSwapBlock.attributes.name.inactive=Inactive Block Texture
+entities.KyfexHelper/InputSwapBlock.attributes.name.active=Active Block Texture
+entities.KyfexHelper/InputSwapBlock.attributes.name.inactiveCenter=Inactive Center Sprite
+entities.KyfexHelper/InputSwapBlock.attributes.name.activeCenter=Active Center Sprite
+entities.KyfexHelper/InputSwapBlock.attributes.name.bgTex=Background Texture
+entities.KyfexHelper/InputSwapBlock.attributes.name.underBg=Background-er Texture
+
 # kevin trigger
 entities.KyfexHelper/TemplateKevinTrigger.placements.name.main=Kevin Template Trigger
 entities.KyfexHelper/TemplateKevinTrigger.placements.description.main=An entity that is meant to be used in an auspicioushelper template. When dashed into, its template will activate
@@ -116,5 +129,12 @@ entities.KyfexHelper/GearField.attributes.name.decal2=Yellow Light Decal
 entities.KyfexHelper/GearField.attributes.name.decal3=Green Light Decal
 # kevin face
 entities.KyfexHelper/KevinFace.placements.name.main=[WIP] Kevin Face
+
+# decal placer
+entities.KyfexHelper/DecalPlacer.placements.name.main=Random Decal Placer
+entities.KyfexHelper/DecalPlacer.attributes.description.count=How many decals are in this zone
+entities.KyfexHelper/DecalPlacer.attributes.description.depth=The depth of all decals. 9000 is BG decals, and -10500 is fg decals
+entities.KyfexHelper/DecalPlacer.attributes.description.random=The random seed used for generating the decals
+entities.KyfexHelper/DecalPlacer.attributes.description.decals=A list of decals and their weights. Should be of the form "decal name":weight. For example: 0-prologue/axe:50
 
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

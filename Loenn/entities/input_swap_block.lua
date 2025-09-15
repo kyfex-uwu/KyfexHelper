@@ -11,12 +11,26 @@ for _,placement in ipairs(swapBlock.placements) do
                 height = placement.data.height,   
                 theme = placement.data.theme,    
                 input = input,
+                
+                inactive="",
+                active="",
+                bgTex="",
+                activeCenter="",
+                inactiveCenter="",
+                underBg="",
             }
         })
     end
 end
 
-local newFieldInformation = {}
+local newFieldInformation = {
+    inactive={options={"objects/swapblock/blockRed"}},
+    active={options={"objects/swapblock/block"}},
+    bgTex={options={"objects/swapblock/target"}},
+    activeCenter={options={"swapBlockLight"}},
+    inactiveCenter={options={"swapBlockLightRed"}},
+    underBg={options={"objects/swapblock/path"}},
+}
 for k,v in pairs(swapBlock.fieldInformation) do
     newFieldInformation[k]=v
 end
@@ -33,5 +47,13 @@ return {
     warnBelowSize = swapBlock.warnBelowSize,
     sprite = swapBlock.sprite,
     nodeSprite = swapBlock.nodeSprite,
-    selection = swapBlock.selection
+    selection = swapBlock.selection,
+    
+    fieldOrder={
+        "x","y","width","height",
+        "theme","input",
+        "active","inactive",
+        "activeCenter","inactiveCenter",
+        "bgTex","underBg",
+    },
 }
