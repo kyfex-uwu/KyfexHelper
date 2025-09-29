@@ -131,10 +131,20 @@ entities.KyfexHelper/GearField.attributes.name.decal3=Green Light Decal
 entities.KyfexHelper/KevinFace.placements.name.main=[WIP] Kevin Face
 
 # decal placer
-entities.KyfexHelper/DecalPlacer.placements.name.main=Random Decal Placer
+entities.KyfexHelper/DecalPlacer.placements.name.main=Random Decal Placer [BG]
+entities.KyfexHelper/DecalPlacer.placements.name.fg=Random Decal Placer [FG]
 entities.KyfexHelper/DecalPlacer.attributes.description.count=How many decals are in this zone
+entities.KyfexHelper/DecalPlacer.attributes.description.density=How dense the decals should be. If this value is anything other than "", it WILL overwrite "count".
+entities.KyfexHelper/DecalPlacer.attributes.name.density=[READ ME] Density
 entities.KyfexHelper/DecalPlacer.attributes.description.depth=The depth of all decals. 9000 is BG decals, and -10500 is fg decals
 entities.KyfexHelper/DecalPlacer.attributes.description.random=The random seed used for generating the decals
 entities.KyfexHelper/DecalPlacer.attributes.description.decals=A list of decals and their weights. Should be of the form "decal name":weight. For example: 0-prologue/axe:50
+
+#triggerable zone
+triggers.KyfexHelper/TriggerableZone.placements.name.main=Triggerable Zone [WIP]
+triggers.KyfexHelper/TriggerableZone.placements.description.main=A Trigger Trigger that only triggers when a Zone Trigger Entity with the right key enters it
+#zt entity
+entities.KyfexHelper/ZoneTriggerEntity.placements.name.main=Zone Trigger Entity [WIP]
+entities.KyfexHelper/ZoneTriggerEntity.placements.description.main=An entity that triggers any Triggerable Zones with the same key
 
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

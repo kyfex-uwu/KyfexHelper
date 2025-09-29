@@ -24,12 +24,12 @@ for _,placement in ipairs(swapBlock.placements) do
 end
 
 local newFieldInformation = {
-    inactive={options={"objects/swapblock/blockRed"}},
-    active={options={"objects/swapblock/block"}},
-    bgTex={options={"objects/swapblock/target"}},
-    activeCenter={options={"swapBlockLight"}},
-    inactiveCenter={options={"swapBlockLightRed"}},
-    underBg={options={"objects/swapblock/path"}},
+    inactive={options={"objects/swapblock/blockRed"}, default=""},
+    active={options={"objects/swapblock/block"}, default=""},
+    bgTex={options={"objects/swapblock/target"}, default=""},
+    activeCenter={options={"swapBlockLight"}, default=""},
+    inactiveCenter={options={"swapBlockLightRed"}, default=""},
+    underBg={options={"objects/swapblock/path"}, default=""},
 }
 for k,v in pairs(swapBlock.fieldInformation) do
     newFieldInformation[k]=v

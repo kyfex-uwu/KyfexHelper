@@ -19,9 +19,11 @@ public class CrystallineHelperCompat {
     public static void LoadHooks() {
         hooks.Add(new Hook(typeof(EnergyBooster).GetMethod("BoostRoutine", BindingFlags.Instance | BindingFlags.NonPublic),
             boostRoutineModifier));
+        TriggerableZone.Load();
     }
     public static void UnloadHooks() {
         foreach (var hook in hooks) hook.Dispose();
+        TriggerableZone.Unload();
     }
 
     public static Entity TryFindBooster(Scene scene) {
