@@ -147,4 +147,10 @@ triggers.KyfexHelper/TriggerableZone.placements.description.main=A Trigger Trigg
 entities.KyfexHelper/ZoneTriggerEntity.placements.name.main=Zone Trigger Entity [WIP]
 entities.KyfexHelper/ZoneTriggerEntity.placements.description.main=An entity that triggers any Triggerable Zones with the same key
 
+# CompleteWithoutEndTrigger
+triggers.KyfexHelper/CompleteWithoutEndTrigger.placements.name.main=Complete Level Without End
+triggers.KyfexHelper/CompleteWithoutEndTrigger.placements.description.main=Completes the current level without kicking you out of the level
+entities.KyfexHelper/CompleteWithoutEndTrigger.attributes.description.collectBerries=Should the player collect all their berries when they hit this trigger (vanilla: true)
+entities.KyfexHelper/CompleteWithoutEndTrigger.attributes.description.canRetry=Can the player retry after they hit this trigger (vanilla: false)
+
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper

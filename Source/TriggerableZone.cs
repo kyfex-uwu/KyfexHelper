@@ -20,11 +20,11 @@ public class TriggerableZone : TriggerTrigger{
     public TriggerableZone(EntityData data, Vector2 offset) : base(transform(data), offset) { }
 
     private static Hook hook;
-    public static void Load() {
+    public static new void Load() {
         hook = new Hook(typeof(VitModule).GetMethod("GetClassName", BindingFlags.Static | BindingFlags.Public),
             GetClassNameHook);
     }
-    public static void Unload() {
+    public static new void Unload() {
         hook?.Dispose();
     }
 

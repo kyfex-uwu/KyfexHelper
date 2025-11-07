@@ -53,6 +53,8 @@ public class KyfexHelperModule : EverestModule {
         RespectFakeTransitionCamera.Load();
         CustomCollidableBadeline.Load();
         CustomDirectionBadelineBoost.Load();
+        TempleGateLoooongWay.Load();
+        CompleteWithoutEndTrigger.Load();
         
         if (Everest.Loader.DependencyLoaded(communalDependency))
             CommunalHelperCompat.LoadHooks();
@@ -69,6 +71,8 @@ public class KyfexHelperModule : EverestModule {
         RespectFakeTransitionCamera.Unload();
         CustomCollidableBadeline.Unload();
         CustomDirectionBadelineBoost.Unload();
+        TempleGateLoooongWay.Unload();
+        CompleteWithoutEndTrigger.Unload();
         
         if (Everest.Loader.DependencyLoaded(communalDependency))
             CommunalHelperCompat.UnloadHooks();
