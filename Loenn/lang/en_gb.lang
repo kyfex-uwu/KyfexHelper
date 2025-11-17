@@ -141,10 +141,10 @@ entities.KyfexHelper/DecalPlacer.attributes.description.random=The random seed u
 entities.KyfexHelper/DecalPlacer.attributes.description.decals=A list of decals and their weights. Should be of the form "decal name":weight. For example: 0-prologue/axe:50
 
 #triggerable zone
-triggers.KyfexHelper/TriggerableZone.placements.name.main=Triggerable Zone [WIP]
+triggers.KyfexHelper/TriggerableZone.placements.name.main=[WIP] Triggerable Zone
 triggers.KyfexHelper/TriggerableZone.placements.description.main=A Trigger Trigger that only triggers when a Zone Trigger Entity with the right key enters it
 #zt entity
-entities.KyfexHelper/ZoneTriggerEntity.placements.name.main=Zone Trigger Entity [WIP]
+entities.KyfexHelper/ZoneTriggerEntity.placements.name.main=[WIP] Zone Trigger Entity
 entities.KyfexHelper/ZoneTriggerEntity.placements.description.main=An entity that triggers any Triggerable Zones with the same key
 
 # CompleteWithoutEndTrigger
@@ -154,3 +154,7 @@ entities.KyfexHelper/CompleteWithoutEndTrigger.attributes.description.collectBer
 entities.KyfexHelper/CompleteWithoutEndTrigger.attributes.description.canRetry=Can the player retry after they hit this trigger (vanilla: false)
 
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper
+
+entities.KyfexHelper/MapperNote.placements.name.main=Mapper Note [Loenn Only]
+entities.KyfexHelper/MapperNote.placements.description.main=A sticky note to hold your thoughts. Only exists in Loenn, does not translate to Celeste at all. Made by kyfex <3
+entities.KyfexHelper/MapperNote.attributes.description.text=You don't need to edit this attribute here; you can select the note and type directly :3
