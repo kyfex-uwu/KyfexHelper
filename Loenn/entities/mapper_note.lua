@@ -106,9 +106,11 @@ return {
     fieldInformation={
         textColor={
             fieldType="color",
+            useAlpha=true,
         },
         rectangleColor={
-            fieldType="color"
+            fieldType="color",
+            useAlpha=true,
         },
     },
     fieldOrder={
@@ -121,9 +123,9 @@ return {
         local rectColor = utils.getColor(entity.rectangleColor)
         return {
             drawableRectangle.fromRectangle("fill", entity.x, entity.y+8, entity.width, entity.height-8, 
-                {rectColor[1], rectColor[2], rectColor[3], 0.3}),
+                {rectColor[1], rectColor[2], rectColor[3], (rectColor[4] or 1)*0.3}),
             drawableRectangle.fromRectangle("fill", entity.x+8, entity.y, entity.width-8, 8, 
-                {rectColor[1], rectColor[2], rectColor[3], 0.3}),
+                {rectColor[1], rectColor[2], rectColor[3], (rectColor[4] or 1)*0.3}),
             drawableLine.fromPoints({
                     entity.x+8,entity.y,
                     entity.x+entity.width,entity.y,
@@ -133,7 +135,7 @@ return {
                     entity.x+8,entity.y,
                     entity.x+8,entity.y+8,
                     entity.x,entity.y+8}, 
-                {rectColor[1]*0.65, rectColor[2]*0.65, rectColor[3]*0.65,0.8}),
+                {rectColor[1]*0.65, rectColor[2]*0.65, rectColor[3]*0.65,(rectColor[4] or 1)*0.8}),
             drawableText.fromText(entity.text, 
                 entity.x, entity.y, 
                 entity.width, entity.height, 
