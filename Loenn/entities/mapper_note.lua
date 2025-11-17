@@ -17,7 +17,7 @@ local keyData={
     rshift=false,
     lctrl=false,
     rctrl=false,
-    capslock=false
+    capslock=false,
 }
 local shiftLookups = {
     ["`"]="~",
@@ -98,9 +98,9 @@ return {
         data = {
             width=8,
             height=8,
-            text="Note",
+            text="",
             textColor="ffffff",
-            rectangleColor="ffff99"
+            rectangleColor="ffff99",
         },
     }},
     fieldInformation={
@@ -116,7 +116,7 @@ return {
     fieldOrder={
         "x", "y", "width", "height",
         "rectangleColor", "textColor",
-        "text"    
+        "text"
     },
 
     sprite = function(room, entity)
@@ -136,7 +136,7 @@ return {
                     entity.x+8,entity.y+8,
                     entity.x,entity.y+8}, 
                 {rectColor[1]*0.65, rectColor[2]*0.65, rectColor[3]*0.65,(rectColor[4] or 1)*0.8}),
-            drawableText.fromText(entity.text, 
+            drawableText.fromText(entity.text=="" and "-empty note-" or entity.text, 
                 entity.x, entity.y, 
                 entity.width, entity.height, 
                 hiresFont, 0.5, 
