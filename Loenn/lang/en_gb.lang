@@ -153,6 +153,13 @@ triggers.KyfexHelper/CompleteWithoutEndTrigger.placements.description.main=Compl
 entities.KyfexHelper/CompleteWithoutEndTrigger.attributes.description.collectBerries=Should the player collect all their berries when they hit this trigger (vanilla: true)
 entities.KyfexHelper/CompleteWithoutEndTrigger.attributes.description.canRetry=Can the player retry after they hit this trigger (vanilla: false)
 
+#Lego
+entities.KyfexHelper/Lego.placements.name.main=[WIP] Lego
+
+#AubreyHelper Fixer
+triggers.KyfexHelper/AubreyHelperPosSettingTrigger.placements.name.main=Position Swap Setting
+triggers.KyfexHelper/AubreyHelperPosSettingTrigger.placements.description.main=Sets if the player can swap their position
+
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper
 
 entities.KyfexHelper/MapperNote.placements.name.main=Mapper Note [Loenn Only]

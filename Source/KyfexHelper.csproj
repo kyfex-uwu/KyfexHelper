@@ -44,6 +44,9 @@
         <Reference Include="NLua">
             <HintPath>../../../NLua.dll</HintPath>
         </Reference>
+        <Reference Include="AubreyHelper">
+            <HintPath>../deps/AubreyHelper.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <Target Name="CopyFiles" AfterTargets="Build" Inputs="$(OutputPath)\$(AssemblyName).dll;$(OutputPath)\$(AssemblyName).pdb" Outputs="..\bin\$(AssemblyName).dll;..\bin\$(AssemblyName).pdb">

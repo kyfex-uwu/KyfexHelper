@@ -10,8 +10,8 @@ public class KyfexHelperModule : EverestModule {
     // public override Type SettingsType => typeof(KyfexHelperModuleSettings);
     // public static KyfexHelperModuleSettings Settings => (KyfexHelperModuleSettings) Instance._Settings;
     //
-    // public override Type SessionType => typeof(KyfexHelperModuleSession);
-    // public static KyfexHelperModuleSession Session => (KyfexHelperModuleSession) Instance._Session;
+    public override Type SessionType => typeof(KyfexHelperModuleSession);
+    public static KyfexHelperModuleSession Session => (KyfexHelperModuleSession) Instance._Session;
     //
     // public override Type SaveDataType => typeof(KyfexHelperModuleSaveData);
     // public static KyfexHelperModuleSaveData SaveData => (KyfexHelperModuleSaveData) Instance._SaveData;
@@ -62,6 +62,8 @@ public class KyfexHelperModule : EverestModule {
             CrystallineHelperCompat.LoadHooks();
         if (Everest.Loader.DependencyLoaded(auspiciousDependency))
             AuspiciousCompat.LoadHooks();
+        if (Everest.Loader.DependencyLoaded(aubreyDependency))
+            AubreyCompat.LoadHooks();
     }
 
     public override void Unload() {
@@ -80,6 +82,8 @@ public class KyfexHelperModule : EverestModule {
             CrystallineHelperCompat.UnloadHooks();
         if (Everest.Loader.DependencyLoaded(auspiciousDependency))
             AuspiciousCompat.UnloadHooks();
+        if (Everest.Loader.DependencyLoaded(aubreyDependency))
+            AubreyCompat.UnloadHooks();
     }
     
     private static EverestModuleMetadata auspiciousDependency = new EverestModuleMetadata{ Name = "auspicioushelper", Version = new Version(0, 2, 1) };
@@ -87,4 +91,5 @@ public class KyfexHelperModule : EverestModule {
     private static EverestModuleMetadata frostHelperDependency = new EverestModuleMetadata{ Name = "FrostHelper", Version = new Version(1, 72, 0) };
     private static EverestModuleMetadata communalDependency = new EverestModuleMetadata{ Name = "CommunalHelper", Version = new Version(1, 24, 4) };
     private static EverestModuleMetadata crystallineDependency = new EverestModuleMetadata{ Name = "CrystallineHelper", Version = new Version(1, 16, 6) };
+    private static EverestModuleMetadata aubreyDependency = new EverestModuleMetadata{ Name = "AubreyHelper", Version = new Version(0, 1, 0) };
 }
