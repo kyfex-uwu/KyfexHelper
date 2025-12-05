@@ -1,5 +1,5 @@
 - Name: KyfexHelper
-  Version: 0.12.1
+  Version: 0.12.3
   DLL: bin/KyfexHelper.dll
   Dependencies:
     - Name: EverestCore
@@ -13,5 +13,11 @@
       Version: 1.72.0
     - Name: CommunalHelper
       Version: 1.24.4
+    - Name: CrystallineHelper
+      Version: 1.16.6
     - Name: AubreyHelper
       Version: 0.1.0
+#    - Name: Aqua
+#      Version: 1.2.2
+#    - Name: WindHelper
+#      Version: 1.2.0

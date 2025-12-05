@@ -70,15 +70,16 @@ function process(styleground, args)
         styleground.tag = args.tagPrefix .. styleground.tag
     end
 
-    local newExclude = ""
-    if args.excludePrefix ~= "" then
-        for part in string.gmatch(styleground.exclude or "*", "([^,]+)") do
+    if args.excludePrefix ~= "" and args.excludePrefix ~= nil then
+        local newExclude = ""
+        for part in string.gmatch((styleground.exclude ~= nil and styleground.exclude ~= "") and styleground.exclude or "*", "([^,]+)") do
             if newExclude ~= "" then newExclude = newExclude .. "," end
-            newExclude = args.excludePrefix .. part
+            newExclude = newExclude .. args.excludePrefix .. part
         end
+        styleground.exclude = newExclude
     end
-    styleground.exclude = newExclude
-    if args.excludeToAdd ~= "" then
+
+    if args.excludeToAdd ~= "" and args.excludeToAdd ~= nil  then
         if styleground.exclude ~= "" then
             styleground.exclude = styleground.exclude .. ","
         end
@@ -86,13 +87,15 @@ function process(styleground, args)
     end
 
     if styleground.only ~= nil then
-        local newOnly = ""
-        for part in string.gmatch(styleground.only or "*", "([^,]+)") do
-            if newOnly ~= "" then newOnly = newOnly .. "," end
-            newOnly = args.onlyPrefix .. part
+        if args.onlyPrefix ~= "" and args.onlyPrefix ~= nil then
+            local newOnly = ""
+            for part in string.gmatch((styleground.only ~= nil and styleground.only ~= "") and styleground.only or "*", "([^,]+)") do
+                if newOnly ~= "" then newOnly = newOnly .. "," end
+                newOnly = args.onlyPrefix .. part
+            end
+            styleground.only = newOnly
         end
-        styleground.only = newOnly
-        if args.onlyToAdd ~= "" then
+        if args.onlyToAdd ~= "" and args.onlyToAdd ~= nil then
             if styleground.only ~= "" then
                 styleground.only = styleground.only .. ","
             end
@@ -119,6 +122,8 @@ function script.prerun(args, mode, ctx)
     end
 
     local function forward(data)
+--        if true then return end
+
         local fg = args.group == "" and state.map.stylesFg or {}
         local bg = args.group == "" and state.map.stylesBg or {}
 

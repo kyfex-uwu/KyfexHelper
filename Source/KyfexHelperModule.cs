@@ -38,6 +38,8 @@ public class KyfexHelperModule : EverestModule {
             CommunalHelperCompat.Load();
         if (Everest.Loader.DependencyLoaded(crystallineDependency))
             CrystallineHelperCompat.Load();
+        if (Everest.Loader.DependencyLoaded(crystallineDependency))
+            CrystallineHelperCompat.Load();
     }
 
     private static IEnumerator keyUnlockRoutine(Follower follower, FlagUnlock unlocker) {
@@ -92,4 +94,6 @@ public class KyfexHelperModule : EverestModule {
     private static EverestModuleMetadata communalDependency = new EverestModuleMetadata{ Name = "CommunalHelper", Version = new Version(1, 24, 4) };
     private static EverestModuleMetadata crystallineDependency = new EverestModuleMetadata{ Name = "CrystallineHelper", Version = new Version(1, 16, 6) };
     private static EverestModuleMetadata aubreyDependency = new EverestModuleMetadata{ Name = "AubreyHelper", Version = new Version(0, 1, 0) };
+    // private static EverestModuleMetadata windDependency = new EverestModuleMetadata{ Name = "WindHelper", Version = new Version(1, 2, 0) };
+    // private static EverestModuleMetadata aquaDependency = new EverestModuleMetadata{ Name = "Aqua", Version = new Version(1, 2, 2) };
 }

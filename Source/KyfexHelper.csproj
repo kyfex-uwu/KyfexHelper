@@ -47,6 +47,12 @@
         <Reference Include="AubreyHelper">
             <HintPath>../deps/AubreyHelper.dll</HintPath>
         </Reference>
+        <Reference Include="Aqua">
+            <HintPath>../deps/Aqua.dll</HintPath>
+        </Reference>
+        <Reference Include="WindHelper">
+            <HintPath>../deps/WindHelper.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <Target Name="CopyFiles" AfterTargets="Build" Inputs="$(OutputPath)\$(AssemblyName).dll;$(OutputPath)\$(AssemblyName).pdb" Outputs="..\bin\$(AssemblyName).dll;..\bin\$(AssemblyName).pdb">

@@ -11,12 +11,20 @@ public class AubreyCompat {
     private static bool saving = false;
 
     private static bool hookPSE(Func<AubreyHelperModuleSettings, bool> orig, AubreyHelperModuleSettings self) {
-        return KyfexHelperModule.Session.AubreyHelper_FakePosEnabled ?? orig(self);
+        if (KyfexHelperModule.Session == null || KyfexHelperModule.Session.AubreyHelper_FakePosEnabled == KyfexHelperModuleSession.Enabled.UNSET)
+            return orig(self);
+        return KyfexHelperModule.Session.AubreyHelper_FakePosEnabled == KyfexHelperModuleSession.Enabled.ENABLED;
+    }
+    private static float hookCooldown(Func<AubreyHelperModuleSettings.UseEveryWhereSettings, float> orig, AubreyHelperModuleSettings.UseEveryWhereSettings self) {
+        if (KyfexHelperModule.Session == null || KyfexHelperModule.Session.AubreyHelper_Cooldown == null)
+            return orig(self);
+        return KyfexHelperModule.Session.AubreyHelper_Cooldown ?? 0;
     }
     public static void LoadHooks() {
         hooks.Add(new Hook(typeof(AubreyHelperModuleSettings).GetMethod("get_UseEveryWhere", BindingFlags.Instance|BindingFlags.Public), 
             hookPSE));
-        // hooks.Add(new Hook(typeof()));
+        hooks.Add(new Hook(typeof(AubreyHelperModuleSettings.UseEveryWhereSettings).GetMethod("get_Cooldown", BindingFlags.Instance|BindingFlags.Public), 
+            hookCooldown));
     }
 
     public static void UnloadHooks() {
