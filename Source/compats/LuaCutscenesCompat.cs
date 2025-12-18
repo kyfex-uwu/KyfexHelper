@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using NLua;
 
 namespace Celeste.Mod.KyfexHelper;
 
@@ -59,15 +60,15 @@ public class LuaCutscenesCompat {
         return null;
     }
 
-    public static object getField(object getOn, string name, BindingFlags[] flags) {
+    public static object getField(object getOn, string name, LuaTable flags) {
         var orredFlags = BindingFlags.Default;
-        foreach (var flag in flags) orredFlags |= flag;
+        foreach (var flag in flags) orredFlags |= ((BindingFlags)flag);
         return getOn.GetType().GetField(name, orredFlags).GetValue(getOn);
     }
-    public static object getMethod(object getOn, string name, BindingFlags[] flags,
+    public static object getMethod(object getOn, string name, LuaTable flags,
             object[] parameters) {
         var orredFlags = BindingFlags.Default;
-        foreach (var flag in flags) orredFlags |= flag;
+        foreach (var flag in flags) orredFlags |= ((BindingFlags)flag);
         return getOn.GetType().GetMethod(name, orredFlags).Invoke(getOn, parameters);
     }
 }
