@@ -160,6 +160,10 @@ entities.KyfexHelper/Lego.placements.name.main=[WIP] Lego
 triggers.KyfexHelper/AubreyHelperPosSettingTrigger.placements.name.main=Position Swap Setting
 triggers.KyfexHelper/AubreyHelperPosSettingTrigger.placements.description.main=Sets if the player can swap their position
 
+#Easy Wind
+triggers.KyfexHelper/EasyCustomWindTrigger.placements.name.main = Easy Custom Wind
+triggers.KyfexHelper/EasyCustomWindTrigger.placements.description.main = Custom wind that doesn't use a custom WindController (useful in certain situations)
+
 entities.KyfexHelper/KevinZipper.placements.name.main=[WIP] Kevin Zipper
 
 entities.KyfexHelper/MapperNote.placements.name.main=Mapper Note [Loenn Only]
