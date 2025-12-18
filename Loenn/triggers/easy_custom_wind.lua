@@ -5,6 +5,8 @@ return {
         data={
             windX=0,
             windY=0,
+            strong=false,
+            snap=false,
         }
     }}
 }
