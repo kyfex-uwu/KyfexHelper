@@ -7,10 +7,6 @@ function recolor(decal, data)
 end
 function recolorEntity(entity, data)
     if not data.easierEntityNames[entity._name] then return end
-    logging.log(data.targetColor[1])
-    logging.log(data.targetColor[2])
-    logging.log(data.targetColor[3])
-    logging.log(data.targetColor[4])
     entity[data.entityColorField] = utils[(data.targetColor[4] == nil) and "rgbToHex" or "rgbaToHex"](utils.hsvToRgb(
         math.fmod(data.targetColor[1]*360 + (math.random()-0.5)*data.hueDifference, 360),
         math.max(0,math.min(1,data.targetColor[2] + (math.random()-0.5)*data.satDifference)),

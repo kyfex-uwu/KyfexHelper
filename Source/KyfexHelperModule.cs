@@ -47,6 +47,10 @@ public class KyfexHelperModule : EverestModule {
         yield return ((Key)follower.Entity).UseRoutine(unlocker.Center);
         if(unlocker.SFXwaitForUnlock) unlocker.playSound();
     }
+
+    private static string dummyHook(On.Celeste.Dialog.orig_Get orig, string key, Language language) {
+        return orig(key, language);
+    }
     
     public override void Load() {
         KevinZipper.Load();
@@ -57,6 +61,7 @@ public class KyfexHelperModule : EverestModule {
         CustomDirectionBadelineBoost.Load();
         TempleGateLoooongWay.Load();
         CompleteWithoutEndTrigger.Load();
+        On.Celeste.Dialog.Get += dummyHook;
         
         if (Everest.Loader.DependencyLoaded(communalDependency))
             CommunalHelperCompat.LoadHooks();
@@ -77,6 +82,7 @@ public class KyfexHelperModule : EverestModule {
         CustomDirectionBadelineBoost.Unload();
         TempleGateLoooongWay.Unload();
         CompleteWithoutEndTrigger.Unload();
+        On.Celeste.Dialog.Get -= dummyHook;
         
         if (Everest.Loader.DependencyLoaded(communalDependency))
             CommunalHelperCompat.UnloadHooks();
