@@ -11,8 +11,8 @@ public class TempleGateLoooongWay : TempleGate {
     private readonly Sprite baseSprite;
     private readonly Sprite topSprite;
     private readonly List<Sprite> middleSprites = new ();
-    public TempleGateLoooongWay(EntityData data, Vector2 offset, string levelID)
-        : base(data, offset, levelID) {
+    public TempleGateLoooongWay(EntityData data, Vector2 offset)
+        : base(data, offset, "unused?") {
         // this.Remove(this.sprite);
         // var name = data.Attr(nameof(sprite), "default");
         //

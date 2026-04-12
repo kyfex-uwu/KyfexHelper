@@ -113,42 +113,42 @@
     <Anim id="hit" path="templeDoor" delay="0.08" frames="0-4" goto="idle"/>
   </KyfexHelper_temple_gate_loooongway_default_top>
 
-  <KyfexHelper_temple_gate_loooongway_mirror_base path="objects/KyfexHelper/door/base/" start="idle">
-    <Justify x="0.5" y="0"/>
-    <Loop id="idle" path="templeDoorB" delay="0.1" frames="0"/>
-    <Anim id="open" path="templeDoorB" delay="0.1" frames="6-14" goto="idle"/>
-    <Anim id="hit" path="templeDoorB" delay="0.08" frames="0-4" goto="idle"/>
-  </KyfexHelper_temple_gate_loooongway_mirror_base>
-  <KyfexHelper_temple_gate_loooongway_mirror_middle path="objects/KyfexHelper/door/middle/" start="idle">
-    <Justify x="0.5" y="0"/>
-    <Loop id="idle" path="templeDoorB" delay="0.1" frames="0"/>
-    <Anim id="open" path="templeDoorB" delay="0.1" frames="6-14" goto="idle"/>
-    <Anim id="hit" path="templeDoorB" delay="0.08" frames="0-4" goto="idle"/>
-  </KyfexHelper_temple_gate_loooongway_mirror_middle>
-  <KyfexHelper_temple_gate_loooongway_mirror_top path="objects/KyfexHelper/door/top/" start="idle">
-    <Justify x="0.5" y="0"/>
-    <Loop id="idle" path="templeDoorB" delay="0.1" frames="0"/>
-    <Anim id="open" path="templeDoorB" delay="0.1" frames="6-14" goto="idle"/>
-    <Anim id="hit" path="templeDoorB" delay="0.08" frames="0-4" goto="idle"/>
-  </KyfexHelper_temple_gate_loooongway_mirror_top>
+<!--  <KyfexHelper_temple_gate_loooongway_mirror_base path="objects/KyfexHelper/door/base/" start="idle">-->
+<!--    <Justify x="0.5" y="0"/>-->
+<!--    <Loop id="idle" path="templeDoorB" delay="0.1" frames="0"/>-->
+<!--    <Anim id="open" path="templeDoorB" delay="0.1" frames="6-14" goto="idle"/>-->
+<!--    <Anim id="hit" path="templeDoorB" delay="0.08" frames="0-4" goto="idle"/>-->
+<!--  </KyfexHelper_temple_gate_loooongway_mirror_base>-->
+<!--  <KyfexHelper_temple_gate_loooongway_mirror_middle path="objects/KyfexHelper/door/middle/" start="idle">-->
+<!--    <Justify x="0.5" y="0"/>-->
+<!--    <Loop id="idle" path="templeDoorB" delay="0.1" frames="0"/>-->
+<!--    <Anim id="open" path="templeDoorB" delay="0.1" frames="6-14" goto="idle"/>-->
+<!--    <Anim id="hit" path="templeDoorB" delay="0.08" frames="0-4" goto="idle"/>-->
+<!--  </KyfexHelper_temple_gate_loooongway_mirror_middle>-->
+<!--  <KyfexHelper_temple_gate_loooongway_mirror_top path="objects/KyfexHelper/door/top/" start="idle">-->
+<!--    <Justify x="0.5" y="0"/>-->
+<!--    <Loop id="idle" path="templeDoorB" delay="0.1" frames="0"/>-->
+<!--    <Anim id="open" path="templeDoorB" delay="0.1" frames="6-14" goto="idle"/>-->
+<!--    <Anim id="hit" path="templeDoorB" delay="0.08" frames="0-4" goto="idle"/>-->
+<!--  </KyfexHelper_temple_gate_loooongway_mirror_top>-->
 
-  <KyfexHelper_temple_gate_loooongway_theo_base path="objects/KyfexHelper/door/base/" start="idle">
-    <Justify x="0.5" y="0"/>
-    <Loop id="idle" path="templeDoorC" delay="0.1" frames="0"/>
-    <Anim id="open" path="templeDoorC" delay="0.1" frames="6-14" goto="idle"/>
-    <Anim id="hit" path="templeDoorC" delay="0.08" frames="0-4" goto="idle"/>
-  </KyfexHelper_temple_gate_loooongway_theo_base>
-  <KyfexHelper_temple_gate_loooongway_theo_middle path="objects/KyfexHelper/door/middle/" start="idle">
-    <Justify x="0.5" y="0"/>
-    <Loop id="idle" path="templeDoorC" delay="0.1" frames="0"/>
-    <Anim id="open" path="templeDoorC" delay="0.1" frames="6-14" goto="idle"/>
-    <Anim id="hit" path="templeDoorC" delay="0.08" frames="0-4" goto="idle"/>
-  </KyfexHelper_temple_gate_loooongway_theo_middle>
-  <KyfexHelper_temple_gate_loooongway_theo_top path="objects/KyfexHelper/door/top/" start="idle">
-    <Justify x="0.5" y="0"/>
-    <Loop id="idle" path="templeDoorC" delay="0.1" frames="0"/>
-    <Anim id="open" path="templeDoorC" delay="0.1" frames="6-14" goto="idle"/>
-    <Anim id="hit" path="templeDoorC" delay="0.08" frames="0-4" goto="idle"/>
-  </KyfexHelper_temple_gate_loooongway_theo_top>
+<!--  <KyfexHelper_temple_gate_loooongway_theo_base path="objects/KyfexHelper/door/base/" start="idle">-->
+<!--    <Justify x="0.5" y="0"/>-->
+<!--    <Loop id="idle" path="templeDoorC" delay="0.1" frames="0"/>-->
+<!--    <Anim id="open" path="templeDoorC" delay="0.1" frames="6-14" goto="idle"/>-->
+<!--    <Anim id="hit" path="templeDoorC" delay="0.08" frames="0-4" goto="idle"/>-->
+<!--  </KyfexHelper_temple_gate_loooongway_theo_base>-->
+<!--  <KyfexHelper_temple_gate_loooongway_theo_middle path="objects/KyfexHelper/door/middle/" start="idle">-->
+<!--    <Justify x="0.5" y="0"/>-->
+<!--    <Loop id="idle" path="templeDoorC" delay="0.1" frames="0"/>-->
+<!--    <Anim id="open" path="templeDoorC" delay="0.1" frames="6-14" goto="idle"/>-->
+<!--    <Anim id="hit" path="templeDoorC" delay="0.08" frames="0-4" goto="idle"/>-->
+<!--  </KyfexHelper_temple_gate_loooongway_theo_middle>-->
+<!--  <KyfexHelper_temple_gate_loooongway_theo_top path="objects/KyfexHelper/door/top/" start="idle">-->
+<!--    <Justify x="0.5" y="0"/>-->
+<!--    <Loop id="idle" path="templeDoorC" delay="0.1" frames="0"/>-->
+<!--    <Anim id="open" path="templeDoorC" delay="0.1" frames="6-14" goto="idle"/>-->
+<!--    <Anim id="hit" path="templeDoorC" delay="0.08" frames="0-4" goto="idle"/>-->
+<!--  </KyfexHelper_temple_gate_loooongway_theo_top>-->
 
 </Sprites>
